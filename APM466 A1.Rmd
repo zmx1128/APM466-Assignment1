@@ -1,0 +1,2646 @@
+---
+title: "Untitled"
+output: html_document
+---
+Q4(a)
+```{r}
+library(jrvFinance)
+
+# Let calculate ytm for each bond at the date 1/2
+ytm_12_20200301 = bond.yield("2020-01-02", "2020-03-01", 0.015, freq = 2, 99.85,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20200901 = bond.yield("2020-01-02", "2020-09-01", 0.0075, freq = 2, 99.26,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20210301 = bond.yield("2020-01-02", "2021-03-01", 0.0075, freq = 2, 98.89,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20210901 = bond.yield("2020-01-02", "2021-09-01", 0.0075, freq = 2, 98.41,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20220301 = bond.yield("2020-01-02", "2022-03-01", 0.005, freq = 2, 97.57,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20230301 = bond.yield("2020-01-02", "2023-03-01", 0.0175, freq = 2, 100.31,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20240301 = bond.yield("2020-01-02", "2024-03-01", 0.0225, freq = 2, 102.52,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20240901 = bond.yield("2020-01-02", "2024-09-01", 0.015, freq = 2, 98.72,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_12_20250301 = bond.yield("2020-01-02", "2025-03-01", 0.0125, freq = 2, 98.24,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for wo missing bonds
+ytm_12_20220901 = (ytm_12_20220301 + ytm_12_20230301)/2
+
+ytm_12_20230901 = (ytm_12_20230301 + ytm_12_20240301)/2
+
+# Combine all calculated ytm
+bonds_12 = c(ytm_12_20200301, ytm_12_20200901, ytm_12_20210301, ytm_12_20210901, ytm_12_20220301,           ytm_12_20220901, ytm_12_20230301, ytm_12_20230901, ytm_12_20240301, ytm_12_20240901,             ytm_12_20250301)
+
+#--------------------------------------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/3
+ytm_13_20200301 = bond.yield("2020-01-03", "2020-03-01", 0.015, freq = 2, 99.86,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20200901 = bond.yield("2020-01-03", "2020-09-01", 0.0075, freq = 2, 99.28,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20210301 = bond.yield("2020-01-03", "2021-03-01", 0.0075, freq = 2, 98.93,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20210901 = bond.yield("2020-01-03", "2021-09-01", 0.0075, freq = 2, 98.45,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20220301 = bond.yield("2020-01-03", "2022-03-01", 0.005, freq = 2, 97.63,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20230301 = bond.yield("2020-01-03", "2023-03-01", 0.0175, freq = 2, 100.42,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20240301 = bond.yield("2020-01-03", "2024-03-01", 0.0225, freq = 2, 102.65,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20240901 = bond.yield("2020-01-03", "2024-09-01", 0.015, freq = 2, 98.95,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_13_20250301 = bond.yield("2020-01-03", "2025-03-01", 0.0125, freq = 2, 98.43,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_13_20220901 = (ytm_13_20220301 + ytm_13_20230301)/2
+
+ytm_13_20230901 = (ytm_13_20230301 + ytm_13_20240301)/2
+
+# Combine all calculated ytm
+bonds_13 = c(ytm_13_20200301, ytm_13_20200901, ytm_13_20210301, ytm_13_20210901, ytm_13_20220301,           ytm_13_20220901, ytm_13_20230301, ytm_13_20230901, ytm_13_20240301, ytm_13_20240901,             ytm_13_20250301)
+ 
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/6
+ytm_16_20200301 = bond.yield("2020-01-06", "2020-03-01", 0.015, freq = 2, 99.86,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20200901 = bond.yield("2020-01-06", "2020-09-01", 0.0075, freq = 2, 99.28,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20210301 = bond.yield("2020-01-06", "2021-03-01", 0.0075, freq = 2, 98.95,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20210901 = bond.yield("2020-01-06", "2021-09-01", 0.0075, freq = 2, 98.49,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20220301 = bond.yield("2020-01-06", "2022-03-01", 0.005, freq = 2, 97.66,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20230301 = bond.yield("2020-01-06", "2023-03-01", 0.0175, freq = 2, 100.48,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20240301 = bond.yield("2020-01-06", "2024-03-01", 0.0225, freq = 2, 102.75,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20240901 = bond.yield("2020-01-06", "2024-09-01", 0.015, freq = 2, 99.29,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_16_20250301 = bond.yield("2020-01-06", "2025-03-01", 0.0125, freq = 2, 98.58,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_16_20220901 = (ytm_16_20220301 + ytm_16_20230301)/2
+
+ytm_16_20230901 = (ytm_16_20230301 + ytm_16_20240301)/2
+
+# Combine all calculated ytm
+bonds_16 = c(ytm_16_20200301, ytm_16_20200901, ytm_16_20210301, ytm_16_20210901, ytm_16_20220301,           ytm_16_20220901, ytm_16_20230301, ytm_16_20230901, ytm_16_20240301, ytm_16_20240901,             ytm_16_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/7
+ytm_17_20200301 = bond.yield("2020-01-07", "2020-03-01", 0.015, freq = 2, 99.86,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20200901 = bond.yield("2020-01-07", "2020-09-01", 0.0075, freq = 2, 99.27,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20210301 = bond.yield("2020-01-07", "2021-03-01", 0.0075, freq = 2, 98.94,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20210901 = bond.yield("2020-01-07", "2021-09-01", 0.0075, freq = 2, 98.46,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20220301 = bond.yield("2020-01-07", "2022-03-01", 0.005, freq = 2, 97.65,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20230301 = bond.yield("2020-01-07", "2023-03-01", 0.0175, freq = 2, 100.45,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20240301 = bond.yield("2020-01-07", "2024-03-01", 0.0225, freq = 2, 102.58,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20240901 = bond.yield("2020-01-07", "2024-09-01", 0.015, freq = 2, 99.11,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_17_20250301 = bond.yield("2020-01-07", "2025-03-01", 0.0125, freq = 2, 98.48,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_17_20220901 = (ytm_17_20220301 + ytm_17_20230301)/2
+
+ytm_17_20230901 = (ytm_17_20230301 + ytm_17_20240301)/2
+
+# Combine all calculated ytm
+bonds_17 = c(ytm_17_20200301, ytm_17_20200901, ytm_17_20210301, ytm_17_20210901, ytm_17_20220301,           ytm_17_20220901, ytm_17_20230301, ytm_17_20230901, ytm_17_20240301, ytm_17_20240901,             ytm_17_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/8
+ytm_18_20200301 = bond.yield("2020-01-08", "2020-03-01", 0.015, freq = 2, 99.86,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20200901 = bond.yield("2020-01-08", "2020-09-01", 0.0075, freq = 2, 99.28,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20210301 = bond.yield("2020-01-08", "2021-03-01", 0.0075, freq = 2, 98.92,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20210901 = bond.yield("2020-01-08", "2021-09-01", 0.0075, freq = 2, 98.46,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20220301 = bond.yield("2020-01-08", "2022-03-01", 0.005, freq = 2, 97.64,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20230301 = bond.yield("2020-01-08", "2023-03-01", 0.0175, freq = 2, 100.44,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20240301 = bond.yield("2020-01-08", "2024-03-01", 0.0225, freq = 2, 102.68,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20240901 = bond.yield("2020-01-08", "2024-09-01", 0.015, freq = 2, 99.25,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_18_20250301 = bond.yield("2020-01-08", "2025-03-01", 0.0125, freq = 2, 98.48,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_18_20220901 = (ytm_18_20220301 + ytm_18_20230301)/2
+
+ytm_18_20230901 = (ytm_18_20230301 + ytm_18_20240301)/2
+
+# Combine all calculated ytm
+bonds_18 = c(ytm_18_20200301, ytm_18_20200901, ytm_18_20210301, ytm_18_20210901, ytm_18_20220301,           ytm_18_20220901, ytm_18_20230301, ytm_18_20230901, ytm_18_20240301, ytm_18_20240901,             ytm_18_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/9
+ytm_19_20200301 = bond.yield("2020-01-09", "2020-03-01", 0.015, freq = 2, 99.86,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20200901 = bond.yield("2020-01-09", "2020-09-01", 0.0075, freq = 2, 99.28,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20210301 = bond.yield("2020-01-09", "2021-03-01", 0.0075, freq = 2, 98.92,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20210901 = bond.yield("2020-01-09", "2021-09-01", 0.0075, freq = 2, 98.43,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20220301 = bond.yield("2020-01-09", "2022-03-01", 0.005, freq = 2, 97.6,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20230301 = bond.yield("2020-01-09", "2023-03-01", 0.0175, freq = 2, 100.35,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20240301 = bond.yield("2020-01-09", "2024-03-01", 0.0225, freq = 2, 102.53,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20240901 = bond.yield("2020-01-09", "2024-09-01", 0.015, freq = 2, 98.99,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_19_20250301 = bond.yield("2020-01-09", "2025-03-01", 0.0125, freq = 2, 98.3,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_19_20220901 = (ytm_19_20220301 + ytm_19_20230301)/2
+
+ytm_19_20230901 = (ytm_19_20230301 + ytm_19_20240301)/2
+
+# Combine all calculated ytm
+bonds_19 = c(ytm_19_20200301, ytm_19_20200901, ytm_19_20210301, ytm_19_20210901, ytm_19_20220301,           ytm_19_20220901, ytm_19_20230301, ytm_19_20230901, ytm_19_20240301, ytm_19_20240901,             ytm_19_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/10
+ytm_110_20200301 = bond.yield("2020-01-10", "2020-03-01", 0.015, freq = 2, 99.86,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20200901 = bond.yield("2020-01-10", "2020-09-01", 0.0075, freq = 2, 99.28,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20210301 = bond.yield("2020-01-10", "2021-03-01", 0.0075, freq = 2, 98.88,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20210901 = bond.yield("2020-01-10", "2021-09-01", 0.0075, freq = 2, 98.43,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20220301 = bond.yield("2020-01-10", "2022-03-01", 0.005, freq = 2, 97.61,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20230301 = bond.yield("2020-01-10", "2023-03-01", 0.0175, freq = 2, 100.31,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20240301 = bond.yield("2020-01-10", "2024-03-01", 0.0225, freq = 2, 102.47,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20240901 = bond.yield("2020-01-10", "2024-09-01", 0.015, freq = 2, 99.03,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+ytm_110_20250301 = bond.yield("2020-01-10", "2025-03-01", 0.0125, freq = 2, 98.25,
+                        convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                        comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_110_20220901 = (ytm_110_20220301 + ytm_110_20230301)/2
+
+ytm_110_20230901 = (ytm_110_20230301 + ytm_110_20240301)/2
+
+# Combine all calculated ytm
+bonds_110 = c(ytm_110_20200301, ytm_110_20200901, ytm_110_20210301, ytm_110_20210901,                       ytm_110_20220301, ytm_110_20220901, ytm_110_20230301, ytm_110_20230901,                          ytm_110_20240301, ytm_110_20240901, ytm_110_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/13
+ytm_113_20200301 = bond.yield("2020-01-13", "2020-03-01", 0.015, freq = 2, 99.86,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20200901 = bond.yield("2020-01-13", "2020-09-01", 0.0075, freq = 2, 99.27,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20210301 = bond.yield("2020-01-13", "2021-03-01", 0.0075, freq = 2, 98.9,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20210901 = bond.yield("2020-01-13", "2021-09-01", 0.0075, freq = 2, 98.43,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20220301 = bond.yield("2020-01-13", "2022-03-01", 0.005, freq = 2, 97.57,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20230301 = bond.yield("2020-01-13", "2023-03-01", 0.0175, freq = 2, 100.27,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20240301 = bond.yield("2020-01-13", "2024-03-01", 0.0225, freq = 2, 102.46,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20240901 = bond.yield("2020-01-13", "2024-09-01", 0.015, freq = 2, 99.06,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_113_20250301 = bond.yield("2020-01-13", "2025-03-01", 0.0125, freq = 2, 98.24,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_113_20220901 = (ytm_113_20220301 + ytm_113_20230301)/2
+
+ytm_113_20230901 = (ytm_113_20230301 + ytm_113_20240301)/2
+
+# Combine all calculated ytm
+bonds_113 = c(ytm_113_20200301, ytm_113_20200901, ytm_113_20210301, ytm_113_20210901,                       ytm_113_20220301, ytm_113_20220901, ytm_113_20230301,                                            ytm_113_20230901,ytm_113_20240301, ytm_113_20240901, ytm_113_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/14
+ytm_114_20200301 = bond.yield("2020-01-14", "2020-03-01", 0.015, freq = 2, 99.86,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20200901 = bond.yield("2020-01-14", "2020-09-01", 0.0075, freq = 2, 99.28,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20210301 = bond.yield("2020-01-14", "2021-03-01", 0.0075, freq = 2, 98.9,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20210901 = bond.yield("2020-01-14", "2021-09-01", 0.0075, freq = 2, 98.41,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20220301 = bond.yield("2020-01-14", "2022-03-01", 0.005, freq = 2, 97.58,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20230301 = bond.yield("2020-01-14", "2023-03-01", 0.0175, freq = 2, 100.31,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20240301 = bond.yield("2020-01-14", "2024-03-01", 0.0225, freq = 2, 102.54,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20240901 = bond.yield("2020-01-14", "2024-09-01", 0.015, freq = 2, 98.99,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_114_20250301 = bond.yield("2020-01-14", "2025-03-01", 0.0125, freq = 2, 98.34,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_114_20220901 = (ytm_114_20220301 + ytm_114_20230301)/2
+
+ytm_114_20230901 = (ytm_114_20230301 + ytm_114_20240301)/2
+
+# Combine all calculated ytm
+bonds_114 = c(ytm_114_20200301, ytm_114_20200901, ytm_114_20210301, ytm_114_20210901,                       ytm_114_20220301, ytm_114_20220901, ytm_114_20230301,                                            ytm_114_20230901,ytm_114_20240301, ytm_114_20240901, ytm_114_20250301)
+
+#-----------------------------------------------------------------
+# Let calculate ytm for each bond at the date 1/15
+ytm_115_20200301 = bond.yield("2020-01-15", "2020-03-01", 0.015, freq = 2, 99.86,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20200901 = bond.yield("2020-01-15", "2020-09-01", 0.0075, freq = 2, 99.3,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20210301 = bond.yield("2020-01-15", "2021-03-01", 0.0075, freq = 2, 98.93,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20210901 = bond.yield("2020-01-15", "2021-09-01", 0.0075, freq = 2, 98.42,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20220301 = bond.yield("2020-01-15", "2022-03-01", 0.005, freq = 2, 97.61,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20230301 = bond.yield("2020-01-15", "2023-03-01", 0.0175, freq = 2, 100.38,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20240301 = bond.yield("2020-01-15", "2024-03-01", 0.0225, freq = 2, 102.64,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20240901 = bond.yield("2020-01-15", "2024-09-01", 0.015, freq = 2, 99.1,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+ytm_115_20250301 = bond.yield("2020-01-15", "2025-03-01", 0.0125, freq = 2, 98.47,
+                         convention = c("30/360", "ACT/ACT", "ACT/360", "30/360E"),
+                         comp.freq = 2, redemption_value = 100)
+
+# ytm for two missing bonds
+ytm_115_20220901 = (ytm_115_20220301 + ytm_115_20230301)/2
+
+ytm_115_20230901 = (ytm_115_20230301 + ytm_115_20240301)/2
+
+# Combine all calculated ytm
+bonds_115 = c(ytm_115_20200301, ytm_115_20200901, ytm_115_20210301, ytm_115_20210901,                       ytm_115_20220301, ytm_115_20220901, ytm_115_20230301,                                            ytm_115_20230901,ytm_115_20240301, ytm_115_20240901, ytm_115_20250301)
+
+x_12 = c(0.16389,	0.67500,	1.17778,	1.68889,	2.19167,	2.70278,	3.20556,
+        3.71667,	4.22222,	4.73333,	5.23611)
+
+x_13 = c(0.16111,	0.67222,	1.17500,	1.68611,	2.18889,	2.70000,	3.20278,
+        3.71389,	4.21944,	4.73056,	5.23333)
+
+x_16 = c(0.15278,	0.66389,	1.16667,	1.67778,	2.18056,	2.69167,	3.19444,
+        3.70556,	4.21111,	4.72222,	5.22500)
+
+x_17 = c(0.15000,	0.66111,	1.16389,	1.67500,	2.17778,	2.68889,	3.19167, 3.70278,	4.20833,	         4.71944,	5.22222)
+
+x_18 = c(0.14722,	0.65833,	1.16111,	1.67222,	2.17500,	2.68611,	3.18889, 3.70000,	4.20556,	         4.71667,	5.21944)
+
+x_19 = c(0.14444,	0.65556,	1.15833,	1.66944,	2.17222,	2.68333,	3.18611, 3.69722,	4.20278,	         4.71389,	5.21667)
+
+x_110 = c(0.14167,	0.65278,	1.15556,	1.66667,	2.16944,	2.68056,	3.18333, 3.69444,	4.20000,	        4.71111,	5.21389)
+
+x_113 = c(0.13333,	0.64444,	1.14722,	1.65833,	2.16111,	2.67222,	3.17500, 3.68611,	4.19167,	        4.70278,	5.20556)
+
+x_114 = c(0.13056,	0.64167,	1.14444,	1.65556,	2.15833,	2.66944,	3.17222, 3.68333,	4.18889,	        4.70000,	5.20278)
+
+x_115 = c(0.12778,	0.63889,	1.14167,	1.65278,	2.15556,	2.66667,	3.16944, 3.68056,	4.18611,	        4.69722,	5.20000)
+
+# plot the yield curve
+plot(x_12, bonds_12, type="o", col="1", ylim=c(0.015,0.026), xlab ="year fraction", ylab = "yield to maturity")
+
+lines(x_13, bonds_13, type="o", col="2")
+
+lines(x_16, bonds_16, type="o", col="3")
+
+lines(x_17, bonds_17, type="o", col="4")
+
+lines(x_18, bonds_18, type="o", col="5")
+
+lines(x_19, bonds_19, type="o", col="6")
+
+lines(x_110, bonds_110, type="o", col="7")
+
+lines(x_113, bonds_113, type="o", col="8")
+
+lines(x_114, bonds_114, type="o", col="9")
+
+lines(x_115, bonds_115, type="o", col="10")
+
+legend("top", legend=c("1/2", "1/3", "1/6", "1/7", "1/8", "1/9", "1/10", "1/13", "1/14", "1/15"),col=c("1", "2","3", "4","5", "6","7", "8","9", "10"), lty= 1,cex=0.8)
+
+##______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+#Q4(b)
+
+#Let calculate the spot rate r for each bond at 1/2
+dp12_202031 = bond.TCF('2020-01-02','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.85
+
+cf12_202031 = bond.TCF('2020-01-02','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf12_202031 = bond.TCF('2020-01-02','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f12_202031 = function(r) dp12_202031-cf12_202031*(exp(-yf12_202031*r))
+
+s12_202031 = uniroot(f12_202031,c(0,0.03))$root
+
+
+dp12_202091 = bond.TCF('2020-01-02','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.26
+
+cf12_202091 = bond.TCF('2020-01-02','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf12_202091 = bond.TCF('2020-01-02','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f12_202091 = function(r) dp12_202091-(cf12_202091[1])*(exp(-yf12_202091[1]*s12_202031))-(cf12_202091[2])*(exp(-yf12_202091[2]*r))
+
+s12_202091 = uniroot(f12_202091,c(0,0.03))$root
+
+
+dp12_202131 = bond.TCF('2020-01-02','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.89
+
+cf12_202131 = bond.TCF('2020-01-02','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf12_202131 = bond.TCF('2020-01-02','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f12_202131 = function(r) dp12_202131-(cf12_202131[1])*(exp(-yf12_202131[1]*s12_202031))-(cf12_202131[2])*(exp(-yf12_202131[2]*s12_202091))-(cf12_202131[3])*(exp(-yf12_202131[3]*r))
+
+s12_202131 = uniroot(f12_202131,c(0,0.03))$root
+
+
+dp12_202191 = bond.TCF('2020-01-02','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.41
+
+cf12_202191 = bond.TCF('2020-01-02','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf12_202191 = bond.TCF('2020-01-02','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f12_202191 = function(r) dp12_202191-(cf12_202191[1])*(exp(-yf12_202191[1]*s12_202031))-(cf12_202191[2])*(exp(-yf12_202191[2]*s12_202091))-(cf12_202191[3])*(exp(-yf12_202191[3]*s12_202131))-(cf12_202191[4])*(exp(-yf12_202191[4]*r))
+
+s12_202191 = uniroot(f12_202191,c(0,0.03))$root
+
+
+dp12_202231 = bond.TCF('2020-01-02','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.57
+
+cf12_202231 = bond.TCF('2020-01-02','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf12_202231 = bond.TCF('2020-01-02','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f12_202231 = function(r) dp12_202231-(cf12_202231[1])*(exp(-yf12_202231[1]*s12_202031))-(cf12_202231[2])*(exp(-yf12_202231[2]*s12_202091))-(cf12_202231[3])*(exp(-yf12_202231[3]*s12_202131))-(cf12_202231[4])*(exp(-yf12_202231[4]*s12_202191))-(cf12_202231[5])*(exp(-yf12_202231[5]*r))
+
+s12_202231 = uniroot(f12_202231,c(0,0.03))$root
+
+
+dp12_202331 = bond.TCF('2020-01-02','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.31
+
+cf12_202331 = bond.TCF('2020-01-02','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf12_202331 = bond.TCF('2020-01-02','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f12_202331 = function(r) dp12_202331-(cf12_202331[1])*(exp(-yf12_202331[1]*s12_202031))-(cf12_202331[2])*(exp(-yf12_202331[2]*s12_202091))-(cf12_202331[3])*(exp(-yf12_202331[3]*s12_202131))-(cf12_202331[4])*(exp(-yf12_202331[4]*s12_202191))-(cf12_202331[5])*(exp(-yf12_202331[5]*s12_202231))-(cf12_202331[6])*(exp(-yf12_202331[6]*s12_202231))-(cf12_202331[7])*(exp(-yf12_202331[7]*r))
+
+s12_202331 = uniroot(f12_202331,c(0,0.03))$root
+
+
+dp12_202431 = bond.TCF('2020-01-02','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.52
+
+cf12_202431 = bond.TCF('2020-01-02','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf12_202431 = bond.TCF('2020-01-02','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f12_202431 = function(r) dp12_202431-(cf12_202431[1])*(exp(-yf12_202431[1]*s12_202031))-(cf12_202431[2])*(exp(-yf12_202431[2]*s12_202091))-(cf12_202431[3])*(exp(-yf12_202431[3]*s12_202131))-(cf12_202431[4])*(exp(-yf12_202431[4]*s12_202191))-(cf12_202431[5])*(exp(-yf12_202431[5]*s12_202231))-(cf12_202431[6])*(exp(-yf12_202431[6]*s12_202231))-(cf12_202431[7])*(exp(-yf12_202431[7]*s12_202331))-(cf12_202431[8])*(exp(-yf12_202431[8]*s12_202331))-(cf12_202431[9])*(exp(-yf12_202431[9]*r))
+
+s12_202431 = uniroot(f12_202431,c(0,0.03))$root
+
+
+dp12_202491 = bond.TCF('2020-01-02','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 98.72
+
+cf12_202491 = bond.TCF('2020-01-02','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf12_202491 = bond.TCF('2020-01-02','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f12_202491 = function(r) dp12_202491-(cf12_202491[1])*(exp(-yf12_202491[1]*s12_202031))-(cf12_202491[2])*(exp(-yf12_202491[2]*s12_202091))-(cf12_202491[3])*(exp(-yf12_202491[3]*s12_202131))-(cf12_202491[4])*(exp(-yf12_202491[4]*s12_202191))-(cf12_202491[5])*(exp(-yf12_202491[5]*s12_202231))-(cf12_202491[6])*(exp(-yf12_202491[6]*s12_202231))-(cf12_202491[7])*(exp(-yf12_202491[7]*s12_202331))-(cf12_202491[8])*(exp(-yf12_202491[8]*s12_202331))-(cf12_202491[9])*(exp(-yf12_202491[9]*s12_202431))-(cf12_202491[10])*(exp(-yf12_202491[10]*r))
+
+s12_202491 = uniroot(f12_202491,c(0,0.03))$root
+
+
+dp12_202531 = bond.TCF('2020-01-02','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.24
+
+cf12_202531 = bond.TCF('2020-01-02','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf12_202531 = bond.TCF('2020-01-02','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f12_202531 = function(r) dp12_202531-(cf12_202531[1])*(exp(-yf12_202531[1]*s12_202031))-(cf12_202531[2])*(exp(-yf12_202531[2]*s12_202091))-(cf12_202531[3])*(exp(-yf12_202531[3]*s12_202131))-(cf12_202531[4])*(exp(-yf12_202531[4]*s12_202191))-(cf12_202531[5])*(exp(-yf12_202531[5]*s12_202231))-(cf12_202531[6])*(exp(-yf12_202531[6]*s12_202231))-(cf12_202531[7])*(exp(-yf12_202531[7]*s12_202331))-(cf12_202531[8])*(exp(-yf12_202531[8]*s12_202331))-(cf12_202531[9])*(exp(-yf12_202531[9]*s12_202431))-(cf12_202531[10])*(exp(-yf12_202531[10]*s12_202491))-(cf12_202531[11])*(exp(-yf12_202531[11]*r))
+
+s12_202531 = uniroot(f12_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s12_202291 = (s12_202231+s12_202331)/2
+
+s12_202391 = (s12_202331+s12_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds12 = c(s12_202031, s12_202091, s12_202131, s12_202191, s12_202231, s12_202291,s12_202331, s12_202391,s12_202431,s12_202491,s12_202531)
+
+#--------------------------------------------------------------
+
+#Let calculate the spot rate r for each bond at 1/3
+dp13_202031 = bond.TCF('2020-01-03','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf13_202031 = bond.TCF('2020-01-03','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf13_202031 = bond.TCF('2020-01-03','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f13_202031 = function(r) dp13_202031-cf13_202031*(exp(-yf13_202031*r))
+
+s13_202031 = uniroot(f13_202031,c(0,0.03))$root
+
+
+dp13_202091 = bond.TCF('2020-01-03','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.28
+
+cf13_202091 = bond.TCF('2020-01-03','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf13_202091 = bond.TCF('2020-01-03','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f13_202091 = function(r) dp13_202091-(cf13_202091[1])*(exp(-yf13_202091[1]*s13_202031))-(cf13_202091[2])*(exp(-yf13_202091[2]*r))
+
+s13_202091 = uniroot(f13_202091,c(0,0.03))$root
+
+
+dp13_202131 = bond.TCF('2020-01-03','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.93
+
+cf13_202131 = bond.TCF('2020-01-03','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf13_202131 = bond.TCF('2020-01-03','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f13_202131 = function(r) dp13_202131-(cf13_202131[1])*(exp(-yf13_202131[1]*s13_202031))-(cf13_202131[2])*(exp(-yf13_202131[2]*s13_202091))-(cf13_202131[3])*(exp(-yf13_202131[3]*r))
+
+s13_202131 = uniroot(f13_202131,c(0,0.03))$root
+
+
+dp13_202191 = bond.TCF('2020-01-03','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.45
+
+cf13_202191 = bond.TCF('2020-01-03','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf13_202191 = bond.TCF('2020-01-03','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f13_202191 = function(r) dp13_202191-(cf13_202191[1])*(exp(-yf13_202191[1]*s13_202031))-(cf13_202191[2])*(exp(-yf13_202191[2]*s13_202091))-(cf13_202191[3])*(exp(-yf13_202191[3]*s13_202131))-(cf13_202191[4])*(exp(-yf13_202191[4]*r))
+
+s13_202191 = uniroot(f13_202191,c(0,0.03))$root
+
+
+dp13_202231 = bond.TCF('2020-01-03','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.63
+
+cf13_202231 = bond.TCF('2020-01-03','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf13_202231 = bond.TCF('2020-01-03','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f13_202231 = function(r) dp13_202231-(cf13_202231[1])*(exp(-yf13_202231[1]*s13_202031))-(cf13_202231[2])*(exp(-yf13_202231[2]*s13_202091))-(cf13_202231[3])*(exp(-yf13_202231[3]*s13_202131))-(cf13_202231[4])*(exp(-yf13_202231[4]*s13_202191))-(cf13_202231[5])*(exp(-yf13_202231[5]*r))
+
+s13_202231 = uniroot(f13_202231,c(0,0.03))$root
+
+
+dp13_202331 = bond.TCF('2020-01-03','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.42
+
+cf13_202331 = bond.TCF('2020-01-03','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf13_202331 = bond.TCF('2020-01-03','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f13_202331 = function(r) dp13_202331-(cf13_202331[1])*(exp(-yf13_202331[1]*s13_202031))-(cf13_202331[2])*(exp(-yf13_202331[2]*s13_202091))-(cf13_202331[3])*(exp(-yf13_202331[3]*s13_202131))-(cf13_202331[4])*(exp(-yf13_202331[4]*s13_202191))-(cf13_202331[5])*(exp(-yf13_202331[5]*s13_202231))-(cf13_202331[6])*(exp(-yf13_202331[6]*s13_202231))-(cf13_202331[7])*(exp(-yf13_202331[7]*r))
+
+s13_202331 = uniroot(f13_202331,c(0,0.03))$root
+
+
+dp13_202431 = bond.TCF('2020-01-03','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.65
+
+cf13_202431 = bond.TCF('2020-01-03','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf13_202431 = bond.TCF('2020-01-03','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f13_202431 = function(r) dp13_202431-(cf13_202431[1])*(exp(-yf13_202431[1]*s13_202031))-(cf13_202431[2])*(exp(-yf13_202431[2]*s13_202091))-(cf13_202431[3])*(exp(-yf13_202431[3]*s13_202131))-(cf13_202431[4])*(exp(-yf13_202431[4]*s13_202191))-(cf13_202431[5])*(exp(-yf13_202431[5]*s13_202231))-(cf13_202431[6])*(exp(-yf13_202431[6]*s13_202231))-(cf13_202431[7])*(exp(-yf13_202431[7]*s13_202331))-(cf13_202431[8])*(exp(-yf13_202431[8]*s13_202331))-(cf13_202431[9])*(exp(-yf13_202431[9]*r))
+
+s13_202431 = uniroot(f13_202431,c(0,0.03))$root
+
+
+dp13_202491 = bond.TCF('2020-01-03','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 98.95
+
+cf13_202491 = bond.TCF('2020-01-03','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf13_202491 = bond.TCF('2020-01-03','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f13_202491 = function(r) dp13_202491-(cf13_202491[1])*(exp(-yf13_202491[1]*s13_202031))-(cf13_202491[2])*(exp(-yf13_202491[2]*s13_202091))-(cf13_202491[3])*(exp(-yf13_202491[3]*s13_202131))-(cf13_202491[4])*(exp(-yf13_202491[4]*s13_202191))-(cf13_202491[5])*(exp(-yf13_202491[5]*s13_202231))-(cf13_202491[6])*(exp(-yf13_202491[6]*s13_202231))-(cf13_202491[7])*(exp(-yf13_202491[7]*s13_202331))-(cf13_202491[8])*(exp(-yf13_202491[8]*s13_202331))-(cf13_202491[9])*(exp(-yf13_202491[9]*s13_202431))-(cf13_202491[10])*(exp(-yf13_202491[10]*r))
+
+s13_202491 = uniroot(f13_202491,c(0,0.03))$root
+
+
+dp13_202531 = bond.TCF('2020-01-03','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.43
+
+cf13_202531 = bond.TCF('2020-01-03','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf13_202531 = bond.TCF('2020-01-03','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f13_202531 = function(r) dp13_202531-(cf13_202531[1])*(exp(-yf13_202531[1]*s13_202031))-(cf13_202531[2])*(exp(-yf13_202531[2]*s13_202091))-(cf13_202531[3])*(exp(-yf13_202531[3]*s13_202131))-(cf13_202531[4])*(exp(-yf13_202531[4]*s13_202191))-(cf13_202531[5])*(exp(-yf13_202531[5]*s13_202231))-(cf13_202531[6])*(exp(-yf13_202531[6]*s13_202231))-(cf13_202531[7])*(exp(-yf13_202531[7]*s13_202331))-(cf13_202531[8])*(exp(-yf13_202531[8]*s13_202331))-(cf13_202531[9])*(exp(-yf13_202531[9]*s13_202431))-(cf13_202531[10])*(exp(-yf13_202531[10]*s13_202491))-(cf13_202531[11])*(exp(-yf13_202531[11]*r))
+
+s13_202531 = uniroot(f13_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s13_202291 = (s13_202231+s13_202331)/2
+
+s13_202391 = (s13_202331+s13_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds13 = c(s13_202031, s13_202091, s13_202131, s13_202191, s13_202231, s13_202291,s13_202331, s13_202391,s13_202431,s13_202491,s13_202531)
+
+
+#-------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/6
+
+dp16_202031 = bond.TCF('2020-01-06','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf16_202031 = bond.TCF('2020-01-06','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf16_202031 = bond.TCF('2020-01-06','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f16_202031 = function(r) dp16_202031-cf16_202031*(exp(-yf16_202031*r))
+
+s16_202031 = uniroot(f16_202031,c(0,0.03))$root
+
+
+dp16_202091 = bond.TCF('2020-01-06','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.28
+
+cf16_202091 = bond.TCF('2020-01-06','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf16_202091 = bond.TCF('2020-01-06','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f16_202091 = function(r) dp16_202091-(cf16_202091[1])*(exp(-yf16_202091[1]*s16_202031))-(cf16_202091[2])*(exp(-yf16_202091[2]*r))
+
+s16_202091 = uniroot(f16_202091,c(0,0.03))$root
+
+
+dp16_202131 = bond.TCF('2020-01-06','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.95
+
+cf16_202131 = bond.TCF('2020-01-06','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf16_202131 = bond.TCF('2020-01-06','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f16_202131 = function(r) dp16_202131-(cf16_202131[1])*(exp(-yf16_202131[1]*s16_202031))-(cf16_202131[2])*(exp(-yf16_202131[2]*s16_202091))-(cf16_202131[3])*(exp(-yf16_202131[3]*r))
+
+s16_202131 = uniroot(f16_202131,c(0,0.03))$root
+
+
+dp16_202191 = bond.TCF('2020-01-06','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.49
+
+cf16_202191 = bond.TCF('2020-01-06','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf16_202191 = bond.TCF('2020-01-06','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f16_202191 = function(r) dp16_202191-(cf16_202191[1])*(exp(-yf16_202191[1]*s16_202031))-(cf16_202191[2])*(exp(-yf16_202191[2]*s16_202091))-(cf16_202191[3])*(exp(-yf16_202191[3]*s16_202131))-(cf16_202191[4])*(exp(-yf16_202191[4]*r))
+
+s16_202191 = uniroot(f16_202191,c(0,0.03))$root
+
+
+dp16_202231 = bond.TCF('2020-01-06','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.66
+
+cf16_202231 = bond.TCF('2020-01-06','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf16_202231 = bond.TCF('2020-01-06','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f16_202231 = function(r) dp16_202231-(cf16_202231[1])*(exp(-yf16_202231[1]*s16_202031))-(cf16_202231[2])*(exp(-yf16_202231[2]*s16_202091))-(cf16_202231[3])*(exp(-yf16_202231[3]*s16_202131))-(cf16_202231[4])*(exp(-yf16_202231[4]*s16_202191))-(cf16_202231[5])*(exp(-yf16_202231[5]*r))
+
+s16_202231 = uniroot(f16_202231,c(0,0.03))$root
+
+
+dp16_202331 = bond.TCF('2020-01-06','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.48
+
+cf16_202331 = bond.TCF('2020-01-06','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf16_202331 = bond.TCF('2020-01-06','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f16_202331 = function(r) dp16_202331-(cf16_202331[1])*(exp(-yf16_202331[1]*s16_202031))-(cf16_202331[2])*(exp(-yf16_202331[2]*s16_202091))-(cf16_202331[3])*(exp(-yf16_202331[3]*s16_202131))-(cf16_202331[4])*(exp(-yf16_202331[4]*s16_202191))-(cf16_202331[5])*(exp(-yf16_202331[5]*s16_202231))-(cf16_202331[6])*(exp(-yf16_202331[6]*s16_202231))-(cf16_202331[7])*(exp(-yf16_202331[7]*r))
+
+s16_202331 = uniroot(f16_202331,c(0,0.03))$root
+
+
+dp16_202431 = bond.TCF('2020-01-06','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.75
+
+cf16_202431 = bond.TCF('2020-01-06','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf16_202431 = bond.TCF('2020-01-06','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f16_202431 = function(r) dp16_202431-(cf16_202431[1])*(exp(-yf16_202431[1]*s16_202031))-(cf16_202431[2])*(exp(-yf16_202431[2]*s16_202091))-(cf16_202431[3])*(exp(-yf16_202431[3]*s16_202131))-(cf16_202431[4])*(exp(-yf16_202431[4]*s16_202191))-(cf16_202431[5])*(exp(-yf16_202431[5]*s16_202231))-(cf16_202431[6])*(exp(-yf16_202431[6]*s16_202231))-(cf16_202431[7])*(exp(-yf16_202431[7]*s16_202331))-(cf16_202431[8])*(exp(-yf16_202431[8]*s16_202331))-(cf16_202431[9])*(exp(-yf16_202431[9]*r))
+
+s16_202431 = uniroot(f16_202431,c(0,0.03))$root
+
+
+dp16_202491 = bond.TCF('2020-01-06','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 99.29
+
+cf16_202491 = bond.TCF('2020-01-06','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf16_202491 = bond.TCF('2020-01-06','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f16_202491 = function(r) dp16_202491-(cf16_202491[1])*(exp(-yf16_202491[1]*s16_202031))-(cf16_202491[2])*(exp(-yf16_202491[2]*s16_202091))-(cf16_202491[3])*(exp(-yf16_202491[3]*s16_202131))-(cf16_202491[4])*(exp(-yf16_202491[4]*s16_202191))-(cf16_202491[5])*(exp(-yf16_202491[5]*s16_202231))-(cf16_202491[6])*(exp(-yf16_202491[6]*s16_202231))-(cf16_202491[7])*(exp(-yf16_202491[7]*s16_202331))-(cf16_202491[8])*(exp(-yf16_202491[8]*s16_202331))-(cf16_202491[9])*(exp(-yf16_202491[9]*s16_202431))-(cf16_202491[10])*(exp(-yf16_202491[10]*r))
+
+s16_202491 = uniroot(f16_202491,c(0,0.03))$root
+
+
+dp16_202531 = bond.TCF('2020-01-06','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.58
+
+cf16_202531 = bond.TCF('2020-01-06','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf16_202531 = bond.TCF('2020-01-06','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f16_202531 = function(r) dp16_202531-(cf16_202531[1])*(exp(-yf16_202531[1]*s16_202031))-(cf16_202531[2])*(exp(-yf16_202531[2]*s16_202091))-(cf16_202531[3])*(exp(-yf16_202531[3]*s16_202131))-(cf16_202531[4])*(exp(-yf16_202531[4]*s16_202191))-(cf16_202531[5])*(exp(-yf16_202531[5]*s16_202231))-(cf16_202531[6])*(exp(-yf16_202531[6]*s16_202231))-(cf16_202531[7])*(exp(-yf16_202531[7]*s16_202331))-(cf16_202531[8])*(exp(-yf16_202531[8]*s16_202331))-(cf16_202531[9])*(exp(-yf16_202531[9]*s16_202431))-(cf16_202531[10])*(exp(-yf16_202531[10]*s16_202491))-(cf16_202531[11])*(exp(-yf16_202531[11]*r))
+
+s16_202531 = uniroot(f16_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s16_202291 = (s16_202231+s16_202331)/2
+
+s16_202391 = (s16_202331+s16_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds16 = c(s16_202031, s16_202091, s16_202131, s16_202191, s16_202231, s16_202291,s16_202331, s16_202391,s16_202431,s16_202491,s16_202531)
+
+#-------------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/7
+dp17_202031 = bond.TCF('2020-01-07','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf17_202031 = bond.TCF('2020-01-07','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf17_202031 = bond.TCF('2020-01-07','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f17_202031 = function(r) dp17_202031-cf17_202031*(exp(-yf17_202031*r))
+
+s17_202031 = uniroot(f17_202031,c(0,0.03))$root
+
+
+dp17_202091 = bond.TCF('2020-01-07','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.27
+
+cf17_202091 = bond.TCF('2020-01-07','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf17_202091 = bond.TCF('2020-01-07','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f17_202091 = function(r) dp17_202091-(cf17_202091[1])*(exp(-yf17_202091[1]*s17_202031))-(cf17_202091[2])*(exp(-yf17_202091[2]*r))
+
+s17_202091 = uniroot(f17_202091,c(0,0.03))$root
+
+
+dp17_202131 = bond.TCF('2020-01-07','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.94
+
+cf17_202131 = bond.TCF('2020-01-07','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf17_202131 = bond.TCF('2020-01-07','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f17_202131 = function(r) dp17_202131-(cf17_202131[1])*(exp(-yf17_202131[1]*s17_202031))-(cf17_202131[2])*(exp(-yf17_202131[2]*s17_202091))-(cf17_202131[3])*(exp(-yf17_202131[3]*r))
+
+s17_202131 = uniroot(f17_202131,c(0,0.03))$root
+
+
+dp17_202191 = bond.TCF('2020-01-07','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.46
+
+cf17_202191 = bond.TCF('2020-01-07','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf17_202191 = bond.TCF('2020-01-07','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f17_202191 = function(r) dp17_202191-(cf17_202191[1])*(exp(-yf17_202191[1]*s17_202031))-(cf17_202191[2])*(exp(-yf17_202191[2]*s17_202091))-(cf17_202191[3])*(exp(-yf17_202191[3]*s17_202131))-(cf17_202191[4])*(exp(-yf17_202191[4]*r))
+
+s17_202191 = uniroot(f17_202191,c(0,0.03))$root
+
+
+dp17_202231 = bond.TCF('2020-01-07','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.65
+
+cf17_202231 = bond.TCF('2020-01-07','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf17_202231 = bond.TCF('2020-01-07','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f17_202231 = function(r) dp17_202231-(cf17_202231[1])*(exp(-yf17_202231[1]*s17_202031))-(cf17_202231[2])*(exp(-yf17_202231[2]*s17_202091))-(cf17_202231[3])*(exp(-yf17_202231[3]*s17_202131))-(cf17_202231[4])*(exp(-yf17_202231[4]*s17_202191))-(cf17_202231[5])*(exp(-yf17_202231[5]*r))
+
+s17_202231 = uniroot(f17_202231,c(0,0.03))$root
+
+
+dp17_202331 = bond.TCF('2020-01-07','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.45
+
+cf17_202331 = bond.TCF('2020-01-07','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf17_202331 = bond.TCF('2020-01-07','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f17_202331 = function(r) dp17_202331-(cf17_202331[1])*(exp(-yf17_202331[1]*s17_202031))-(cf17_202331[2])*(exp(-yf17_202331[2]*s17_202091))-(cf17_202331[3])*(exp(-yf17_202331[3]*s17_202131))-(cf17_202331[4])*(exp(-yf17_202331[4]*s17_202191))-(cf17_202331[5])*(exp(-yf17_202331[5]*s17_202231))-(cf17_202331[6])*(exp(-yf17_202331[6]*s17_202231))-(cf17_202331[7])*(exp(-yf17_202331[7]*r))
+
+s17_202331 = uniroot(f17_202331,c(0,0.03))$root
+
+
+dp17_202431 = bond.TCF('2020-01-07','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.58
+
+cf17_202431 = bond.TCF('2020-01-07','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf17_202431 = bond.TCF('2020-01-07','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f17_202431 = function(r) dp17_202431-(cf16_202431[1])*(exp(-yf17_202431[1]*s17_202031))-(cf17_202431[2])*(exp(-yf17_202431[2]*s17_202091))-(cf17_202431[3])*(exp(-yf17_202431[3]*s17_202131))-(cf17_202431[4])*(exp(-yf17_202431[4]*s17_202191))-(cf17_202431[5])*(exp(-yf17_202431[5]*s17_202231))-(cf17_202431[6])*(exp(-yf17_202431[6]*s17_202231))-(cf17_202431[7])*(exp(-yf17_202431[7]*s17_202331))-(cf17_202431[8])*(exp(-yf17_202431[8]*s17_202331))-(cf17_202431[9])*(exp(-yf17_202431[9]*r))
+
+s17_202431 = uniroot(f17_202431,c(0,0.03))$root
+
+
+dp17_202491 = bond.TCF('2020-01-07','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 99.11
+
+cf17_202491 = bond.TCF('2020-01-07','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf17_202491 = bond.TCF('2020-01-07','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f17_202491 = function(r) dp17_202491-(cf17_202491[1])*(exp(-yf17_202491[1]*s17_202031))-(cf17_202491[2])*(exp(-yf17_202491[2]*s17_202091))-(cf17_202491[3])*(exp(-yf17_202491[3]*s17_202131))-(cf17_202491[4])*(exp(-yf17_202491[4]*s17_202191))-(cf17_202491[5])*(exp(-yf17_202491[5]*s17_202231))-(cf17_202491[6])*(exp(-yf17_202491[6]*s17_202231))-(cf17_202491[7])*(exp(-yf17_202491[7]*s17_202331))-(cf17_202491[8])*(exp(-yf17_202491[8]*s17_202331))-(cf17_202491[9])*(exp(-yf17_202491[9]*s17_202431))-(cf17_202491[10])*(exp(-yf17_202491[10]*r))
+
+s17_202491 = uniroot(f17_202491,c(0,0.03))$root
+
+
+dp17_202531 = bond.TCF('2020-01-07','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.48
+
+cf17_202531 = bond.TCF('2020-01-07','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf17_202531 = bond.TCF('2020-01-07','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f17_202531 = function(r) dp17_202531-(cf17_202531[1])*(exp(-yf17_202531[1]*s17_202031))-(cf17_202531[2])*(exp(-yf17_202531[2]*s17_202091))-(cf17_202531[3])*(exp(-yf17_202531[3]*s17_202131))-(cf17_202531[4])*(exp(-yf17_202531[4]*s17_202191))-(cf17_202531[5])*(exp(-yf17_202531[5]*s17_202231))-(cf17_202531[6])*(exp(-yf17_202531[6]*s17_202231))-(cf17_202531[7])*(exp(-yf17_202531[7]*s17_202331))-(cf17_202531[8])*(exp(-yf17_202531[8]*s17_202331))-(cf17_202531[9])*(exp(-yf17_202531[9]*s17_202431))-(cf17_202531[10])*(exp(-yf17_202531[10]*s17_202491))-(cf17_202531[11])*(exp(-yf17_202531[11]*r))
+
+s17_202531 = uniroot(f17_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s17_202291 = (s17_202231+s17_202331)/2
+
+s17_202391 = (s17_202331+s17_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds17 = c(s17_202031, s17_202091, s17_202131, s17_202191, s17_202231, s17_202291,s17_202331, s17_202391,s17_202431,s17_202491,s17_202531)
+
+#----------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/8
+dp18_202031 = bond.TCF('2020-01-08','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf18_202031 = bond.TCF('2020-01-08','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf18_202031 = bond.TCF('2020-01-08','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f18_202031 = function(r) dp18_202031-cf18_202031*(exp(-yf18_202031*r))
+
+s18_202031 = uniroot(f18_202031,c(0,0.03))$root
+
+
+dp18_202091 = bond.TCF('2020-01-08','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.28
+
+cf18_202091 = bond.TCF('2020-01-08','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf18_202091 = bond.TCF('2020-01-08','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f18_202091 = function(r) dp18_202091-(cf18_202091[1])*(exp(-yf18_202091[1]*s18_202031))-(cf18_202091[2])*(exp(-yf18_202091[2]*r))
+
+s18_202091 = uniroot(f18_202091,c(0,0.03))$root
+
+
+dp18_202131 = bond.TCF('2020-01-08','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.92
+
+cf18_202131 = bond.TCF('2020-01-08','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf18_202131 = bond.TCF('2020-01-08','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f18_202131 = function(r) dp18_202131-(cf18_202131[1])*(exp(-yf18_202131[1]*s18_202031))-(cf18_202131[2])*(exp(-yf18_202131[2]*s18_202091))-(cf18_202131[3])*(exp(-yf18_202131[3]*r))
+
+s18_202131 = uniroot(f18_202131,c(0,0.03))$root
+
+
+dp18_202191 = bond.TCF('2020-01-08','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.46
+
+cf18_202191 = bond.TCF('2020-01-08','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf18_202191 = bond.TCF('2020-01-08','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f18_202191 = function(r) dp18_202191-(cf18_202191[1])*(exp(-yf18_202191[1]*s18_202031))-(cf18_202191[2])*(exp(-yf18_202191[2]*s18_202091))-(cf18_202191[3])*(exp(-yf18_202191[3]*s18_202131))-(cf18_202191[4])*(exp(-yf18_202191[4]*r))
+
+s18_202191 = uniroot(f18_202191,c(0,0.03))$root
+
+
+dp18_202231 = bond.TCF('2020-01-08','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.64
+
+cf18_202231 = bond.TCF('2020-01-08','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf18_202231 = bond.TCF('2020-01-08','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f18_202231 = function(r) dp18_202231-(cf18_202231[1])*(exp(-yf18_202231[1]*s18_202031))-(cf18_202231[2])*(exp(-yf18_202231[2]*s18_202091))-(cf18_202231[3])*(exp(-yf18_202231[3]*s18_202131))-(cf18_202231[4])*(exp(-yf18_202231[4]*s18_202191))-(cf18_202231[5])*(exp(-yf18_202231[5]*r))
+
+s18_202231 = uniroot(f18_202231,c(0,0.03))$root
+
+
+dp18_202331 = bond.TCF('2020-01-08','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.44
+
+cf18_202331 = bond.TCF('2020-01-08','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf18_202331 = bond.TCF('2020-01-08','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f18_202331 = function(r) dp18_202331-(cf18_202331[1])*(exp(-yf18_202331[1]*s18_202031))-(cf18_202331[2])*(exp(-yf18_202331[2]*s18_202091))-(cf18_202331[3])*(exp(-yf18_202331[3]*s18_202131))-(cf18_202331[4])*(exp(-yf18_202331[4]*s18_202191))-(cf18_202331[5])*(exp(-yf18_202331[5]*s18_202231))-(cf18_202331[6])*(exp(-yf18_202331[6]*s18_202231))-(cf18_202331[7])*(exp(-yf18_202331[7]*r))
+
+s18_202331 = uniroot(f18_202331,c(0,0.03))$root
+
+
+dp18_202431 = bond.TCF('2020-01-08','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.68
+
+cf18_202431 = bond.TCF('2020-01-08','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf18_202431 = bond.TCF('2020-01-08','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f18_202431 = function(r) dp18_202431-(cf18_202431[1])*(exp(-yf18_202431[1]*s18_202031))-(cf18_202431[2])*(exp(-yf18_202431[2]*s18_202091))-(cf18_202431[3])*(exp(-yf18_202431[3]*s18_202131))-(cf18_202431[4])*(exp(-yf18_202431[4]*s18_202191))-(cf18_202431[5])*(exp(-yf18_202431[5]*s18_202231))-(cf18_202431[6])*(exp(-yf18_202431[6]*s18_202231))-(cf18_202431[7])*(exp(-yf18_202431[7]*s18_202331))-(cf18_202431[8])*(exp(-yf18_202431[8]*s18_202331))-(cf18_202431[9])*(exp(-yf18_202431[9]*r))
+
+s18_202431 = uniroot(f18_202431,c(0,0.03))$root
+
+
+dp18_202491 = bond.TCF('2020-01-08','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 99.25
+
+cf18_202491 = bond.TCF('2020-01-08','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf18_202491 = bond.TCF('2020-01-08','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f18_202491 = function(r) dp18_202491-(cf18_202491[1])*(exp(-yf18_202491[1]*s18_202031))-(cf18_202491[2])*(exp(-yf18_202491[2]*s18_202091))-(cf18_202491[3])*(exp(-yf18_202491[3]*s18_202131))-(cf18_202491[4])*(exp(-yf18_202491[4]*s18_202191))-(cf18_202491[5])*(exp(-yf18_202491[5]*s18_202231))-(cf18_202491[6])*(exp(-yf18_202491[6]*s18_202231))-(cf18_202491[7])*(exp(-yf18_202491[7]*s18_202331))-(cf18_202491[8])*(exp(-yf18_202491[8]*s18_202331))-(cf18_202491[9])*(exp(-yf18_202491[9]*s18_202431))-(cf18_202491[10])*(exp(-yf18_202491[10]*r))
+
+s18_202491 = uniroot(f18_202491,c(0,0.03))$root
+
+
+dp18_202531 = bond.TCF('2020-01-08','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.48
+
+cf18_202531 = bond.TCF('2020-01-08','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf18_202531 = bond.TCF('2020-01-08','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f18_202531 = function(r) dp18_202531-(cf18_202531[1])*(exp(-yf18_202531[1]*s18_202031))-(cf18_202531[2])*(exp(-yf18_202531[2]*s18_202091))-(cf18_202531[3])*(exp(-yf18_202531[3]*s18_202131))-(cf18_202531[4])*(exp(-yf18_202531[4]*s18_202191))-(cf18_202531[5])*(exp(-yf18_202531[5]*s18_202231))-(cf18_202531[6])*(exp(-yf18_202531[6]*s18_202231))-(cf18_202531[7])*(exp(-yf18_202531[7]*s18_202331))-(cf18_202531[8])*(exp(-yf18_202531[8]*s18_202331))-(cf18_202531[9])*(exp(-yf18_202531[9]*s18_202431))-(cf18_202531[10])*(exp(-yf18_202531[10]*s18_202491))-(cf18_202531[11])*(exp(-yf18_202531[11]*r))
+
+s18_202531 = uniroot(f18_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s18_202291 = (s18_202231+s18_202331)/2
+
+s18_202391 = (s18_202331+s18_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds18 = c(s18_202031, s18_202091, s18_202131, s18_202191, s18_202231, s18_202291,s18_202331, s18_202391,s18_202431,s18_202491,s18_202531)
+
+#--------------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/9
+dp19_202031 = bond.TCF('2020-01-09','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf19_202031 = bond.TCF('2020-01-09','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf19_202031 = bond.TCF('2020-01-09','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f19_202031 = function(r) dp19_202031-cf19_202031*(exp(-yf19_202031*r))
+
+s19_202031 = uniroot(f19_202031,c(0,0.03))$root
+
+
+dp19_202091 = bond.TCF('2020-01-09','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.28
+
+cf19_202091 = bond.TCF('2020-01-09','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf19_202091 = bond.TCF('2020-01-09','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f19_202091 = function(r) dp19_202091-(cf19_202091[1])*(exp(-yf19_202091[1]*s19_202031))-(cf19_202091[2])*(exp(-yf19_202091[2]*r))
+
+s19_202091 = uniroot(f19_202091,c(0,0.03))$root
+
+
+dp19_202131 = bond.TCF('2020-01-09','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.92
+
+cf19_202131 = bond.TCF('2020-01-09','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf19_202131 = bond.TCF('2020-01-09','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f19_202131 = function(r) dp19_202131-(cf19_202131[1])*(exp(-yf19_202131[1]*s19_202031))-(cf19_202131[2])*(exp(-yf19_202131[2]*s19_202091))-(cf19_202131[3])*(exp(-yf19_202131[3]*r))
+
+s19_202131 = uniroot(f19_202131,c(0,0.03))$root
+
+
+dp19_202191 = bond.TCF('2020-01-09','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.43
+
+cf19_202191 = bond.TCF('2020-01-09','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf19_202191 = bond.TCF('2020-01-09','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f19_202191 = function(r) dp19_202191-(cf19_202191[1])*(exp(-yf19_202191[1]*s19_202031))-(cf19_202191[2])*(exp(-yf19_202191[2]*s19_202091))-(cf19_202191[3])*(exp(-yf19_202191[3]*s19_202131))-(cf19_202191[4])*(exp(-yf19_202191[4]*r))
+
+s19_202191 = uniroot(f19_202191,c(0,0.03))$root
+
+
+dp19_202231 = bond.TCF('2020-01-09','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.6
+
+cf19_202231 = bond.TCF('2020-01-09','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf19_202231 = bond.TCF('2020-01-09','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f19_202231 = function(r) dp19_202231-(cf19_202231[1])*(exp(-yf19_202231[1]*s19_202031))-(cf19_202231[2])*(exp(-yf19_202231[2]*s19_202091))-(cf19_202231[3])*(exp(-yf19_202231[3]*s19_202131))-(cf19_202231[4])*(exp(-yf19_202231[4]*s19_202191))-(cf19_202231[5])*(exp(-yf19_202231[5]*r))
+
+s19_202231 = uniroot(f19_202231,c(0,0.03))$root
+
+
+dp19_202331 = bond.TCF('2020-01-09','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.35
+
+cf19_202331 = bond.TCF('2020-01-09','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf19_202331 = bond.TCF('2020-01-09','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f19_202331 = function(r) dp19_202331-(cf19_202331[1])*(exp(-yf19_202331[1]*s19_202031))-(cf19_202331[2])*(exp(-yf19_202331[2]*s19_202091))-(cf19_202331[3])*(exp(-yf19_202331[3]*s19_202131))-(cf19_202331[4])*(exp(-yf19_202331[4]*s19_202191))-(cf19_202331[5])*(exp(-yf19_202331[5]*s19_202231))-(cf19_202331[6])*(exp(-yf19_202331[6]*s19_202231))-(cf19_202331[7])*(exp(-yf19_202331[7]*r))
+
+s19_202331 = uniroot(f19_202331,c(0,0.03))$root
+
+
+dp19_202431 = bond.TCF('2020-01-09','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.53
+
+cf19_202431 = bond.TCF('2020-01-09','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf19_202431 = bond.TCF('2020-01-09','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f19_202431 = function(r) dp19_202431-(cf19_202431[1])*(exp(-yf19_202431[1]*s19_202031))-(cf19_202431[2])*(exp(-yf19_202431[2]*s19_202091))-(cf19_202431[3])*(exp(-yf19_202431[3]*s19_202131))-(cf19_202431[4])*(exp(-yf19_202431[4]*s19_202191))-(cf19_202431[5])*(exp(-yf19_202431[5]*s19_202231))-(cf19_202431[6])*(exp(-yf19_202431[6]*s19_202231))-(cf19_202431[7])*(exp(-yf19_202431[7]*s19_202331))-(cf19_202431[8])*(exp(-yf19_202431[8]*s19_202331))-(cf19_202431[9])*(exp(-yf19_202431[9]*r))
+
+s19_202431 = uniroot(f19_202431,c(0,0.03))$root
+
+
+dp19_202491 = bond.TCF('2020-01-09','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 98.99
+
+cf19_202491 = bond.TCF('2020-01-09','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf19_202491 = bond.TCF('2020-01-09','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f19_202491 = function(r) dp19_202491-(cf19_202491[1])*(exp(-yf19_202491[1]*s19_202031))-(cf19_202491[2])*(exp(-yf19_202491[2]*s19_202091))-(cf19_202491[3])*(exp(-yf19_202491[3]*s19_202131))-(cf19_202491[4])*(exp(-yf19_202491[4]*s19_202191))-(cf19_202491[5])*(exp(-yf19_202491[5]*s19_202231))-(cf19_202491[6])*(exp(-yf19_202491[6]*s19_202231))-(cf19_202491[7])*(exp(-yf19_202491[7]*s19_202331))-(cf19_202491[8])*(exp(-yf19_202491[8]*s19_202331))-(cf19_202491[9])*(exp(-yf19_202491[9]*s19_202431))-(cf19_202491[10])*(exp(-yf19_202491[10]*r))
+
+s19_202491 = uniroot(f19_202491,c(0,0.03))$root
+
+
+dp19_202531 = bond.TCF('2020-01-09','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.3
+
+cf19_202531 = bond.TCF('2020-01-09','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf19_202531 = bond.TCF('2020-01-09','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f19_202531 = function(r) dp19_202531-(cf19_202531[1])*(exp(-yf19_202531[1]*s19_202031))-(cf19_202531[2])*(exp(-yf19_202531[2]*s19_202091))-(cf19_202531[3])*(exp(-yf19_202531[3]*s19_202131))-(cf19_202531[4])*(exp(-yf19_202531[4]*s19_202191))-(cf19_202531[5])*(exp(-yf19_202531[5]*s19_202231))-(cf19_202531[6])*(exp(-yf19_202531[6]*s19_202231))-(cf19_202531[7])*(exp(-yf19_202531[7]*s19_202331))-(cf19_202531[8])*(exp(-yf19_202531[8]*s19_202331))-(cf19_202531[9])*(exp(-yf19_202531[9]*s19_202431))-(cf19_202531[10])*(exp(-yf19_202531[10]*s19_202491))-(cf19_202531[11])*(exp(-yf19_202531[11]*r))
+
+s19_202531 = uniroot(f19_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s19_202291 = (s19_202231+s19_202331)/2
+
+s19_202391 = (s19_202331+s19_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds19 = c(s19_202031, s19_202091, s19_202131, s19_202191, s19_202231, s19_202291,s19_202331, s19_202391,s19_202431,s19_202491,s19_202531)
+
+#------------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/10
+dp110_202031 = bond.TCF('2020-01-10','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf110_202031 = bond.TCF('2020-01-10','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf110_202031 = bond.TCF('2020-01-10','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f110_202031 = function(r) dp110_202031-cf110_202031*(exp(-yf110_202031*r))
+
+s110_202031 = uniroot(f110_202031,c(0,0.03))$root
+
+
+dp110_202091 = bond.TCF('2020-01-10','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.28
+
+cf110_202091 = bond.TCF('2020-01-10','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf110_202091 = bond.TCF('2020-01-10','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f110_202091 = function(r) dp110_202091-(cf110_202091[1])*(exp(-yf110_202091[1]*s110_202031))-(cf110_202091[2])*(exp(-yf110_202091[2]*r))
+
+s110_202091 = uniroot(f110_202091,c(0,0.03))$root
+
+
+dp110_202131 = bond.TCF('2020-01-10','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.88
+
+cf110_202131 = bond.TCF('2020-01-10','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf110_202131 = bond.TCF('2020-01-10','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f110_202131 = function(r) dp110_202131-(cf110_202131[1])*(exp(-yf110_202131[1]*s110_202031))-(cf110_202131[2])*(exp(-yf110_202131[2]*s110_202091))-(cf110_202131[3])*(exp(-yf110_202131[3]*r))
+
+s110_202131 = uniroot(f110_202131,c(0,0.03))$root
+
+
+dp110_202191 = bond.TCF('2020-01-10','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.43
+
+cf110_202191 = bond.TCF('2020-01-10','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf110_202191 = bond.TCF('2020-01-10','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f110_202191 = function(r) dp110_202191-(cf110_202191[1])*(exp(-yf110_202191[1]*s110_202031))-(cf110_202191[2])*(exp(-yf110_202191[2]*s110_202091))-(cf110_202191[3])*(exp(-yf110_202191[3]*s110_202131))-(cf110_202191[4])*(exp(-yf110_202191[4]*r))
+
+s110_202191 = uniroot(f110_202191,c(0,0.03))$root
+
+
+dp110_202231 = bond.TCF('2020-01-10','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.61
+
+cf110_202231 = bond.TCF('2020-01-10','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf110_202231 = bond.TCF('2020-01-10','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f110_202231 = function(r) dp110_202231-(cf110_202231[1])*(exp(-yf110_202231[1]*s110_202031))-(cf110_202231[2])*(exp(-yf110_202231[2]*s110_202091))-(cf110_202231[3])*(exp(-yf110_202231[3]*s110_202131))-(cf110_202231[4])*(exp(-yf110_202231[4]*s110_202191))-(cf110_202231[5])*(exp(-yf110_202231[5]*r))
+
+s110_202231 = uniroot(f110_202231,c(0,0.03))$root
+
+
+dp110_202331 = bond.TCF('2020-01-10','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.31
+
+cf110_202331 = bond.TCF('2020-01-10','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf110_202331 = bond.TCF('2020-01-10','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f110_202331 = function(r) dp110_202331-(cf110_202331[1])*(exp(-yf110_202331[1]*s110_202031))-(cf110_202331[2])*(exp(-yf110_202331[2]*s110_202091))-(cf110_202331[3])*(exp(-yf110_202331[3]*s110_202131))-(cf110_202331[4])*(exp(-yf110_202331[4]*s110_202191))-(cf110_202331[5])*(exp(-yf110_202331[5]*s110_202231))-(cf110_202331[6])*(exp(-yf110_202331[6]*s110_202231))-(cf110_202331[7])*(exp(-yf110_202331[7]*r))
+
+s110_202331 = uniroot(f110_202331,c(0,0.03))$root
+
+
+dp110_202431 = bond.TCF('2020-01-10','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.47
+
+cf110_202431 = bond.TCF('2020-01-10','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf110_202431 = bond.TCF('2020-01-10','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f110_202431 = function(r) dp110_202431-(cf110_202431[1])*(exp(-yf110_202431[1]*s110_202031))-(cf110_202431[2])*(exp(-yf110_202431[2]*s110_202091))-(cf110_202431[3])*(exp(-yf110_202431[3]*s110_202131))-(cf110_202431[4])*(exp(-yf110_202431[4]*s110_202191))-(cf110_202431[5])*(exp(-yf110_202431[5]*s110_202231))-(cf110_202431[6])*(exp(-yf110_202431[6]*s110_202231))-(cf110_202431[7])*(exp(-yf110_202431[7]*s110_202331))-(cf110_202431[8])*(exp(-yf110_202431[8]*s110_202331))-(cf110_202431[9])*(exp(-yf110_202431[9]*r))
+
+s110_202431 = uniroot(f110_202431,c(0,0.03))$root
+
+
+dp110_202491 = bond.TCF('2020-01-10','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 99.03
+
+cf110_202491 = bond.TCF('2020-01-10','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf110_202491 = bond.TCF('2020-01-10','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f110_202491 = function(r) dp110_202491-(cf110_202491[1])*(exp(-yf110_202491[1]*s110_202031))-(cf110_202491[2])*(exp(-yf110_202491[2]*s110_202091))-(cf110_202491[3])*(exp(-yf110_202491[3]*s110_202131))-(cf110_202491[4])*(exp(-yf110_202491[4]*s110_202191))-(cf110_202491[5])*(exp(-yf110_202491[5]*s110_202231))-(cf110_202491[6])*(exp(-yf110_202491[6]*s110_202231))-(cf110_202491[7])*(exp(-yf110_202491[7]*s110_202331))-(cf110_202491[8])*(exp(-yf110_202491[8]*s110_202331))-(cf110_202491[9])*(exp(-yf110_202491[9]*s110_202431))-(cf110_202491[10])*(exp(-yf110_202491[10]*r))
+
+s110_202491 = uniroot(f110_202491,c(0,0.03))$root
+
+
+dp110_202531 = bond.TCF('2020-01-10','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.25
+
+cf110_202531 = bond.TCF('2020-01-10','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf110_202531 = bond.TCF('2020-01-10','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f110_202531 = function(r) dp110_202531-(cf110_202531[1])*(exp(-yf110_202531[1]*s110_202031))-(cf110_202531[2])*(exp(-yf110_202531[2]*s110_202091))-(cf110_202531[3])*(exp(-yf110_202531[3]*s110_202131))-(cf110_202531[4])*(exp(-yf110_202531[4]*s110_202191))-(cf110_202531[5])*(exp(-yf110_202531[5]*s110_202231))-(cf110_202531[6])*(exp(-yf110_202531[6]*s110_202231))-(cf110_202531[7])*(exp(-yf110_202531[7]*s110_202331))-(cf110_202531[8])*(exp(-yf110_202531[8]*s110_202331))-(cf110_202531[9])*(exp(-yf110_202531[9]*s110_202431))-(cf110_202531[10])*(exp(-yf110_202531[10]*s110_202491))-(cf110_202531[11])*(exp(-yf110_202531[11]*r))
+
+s110_202531 = uniroot(f110_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s110_202291 = (s110_202231+s110_202331)/2
+
+s110_202391 = (s110_202331+s110_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds110 = c(s110_202031, s110_202091, s110_202131, s110_202191, s110_202231, s110_202291,s110_202331,s110_202391,s110_202431,s110_202491,s110_202531)
+
+
+#----------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/13
+dp113_202031 = bond.TCF('2020-01-13','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf113_202031 = bond.TCF('2020-01-13','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf113_202031 = bond.TCF('2020-01-13','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f113_202031 = function(r) dp113_202031-cf113_202031*(exp(-yf113_202031*r))
+
+s113_202031 = uniroot(f113_202031,c(0,0.03))$root
+
+
+dp113_202091 = bond.TCF('2020-01-13','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.27
+
+cf113_202091 = bond.TCF('2020-01-13','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf113_202091 = bond.TCF('2020-01-13','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f113_202091 = function(r) dp113_202091-(cf113_202091[1])*(exp(-yf113_202091[1]*s113_202031))-(cf113_202091[2])*(exp(-yf113_202091[2]*r))
+
+s113_202091 = uniroot(f113_202091,c(0,0.03))$root
+
+
+dp113_202131 = bond.TCF('2020-01-13','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.9
+
+cf113_202131 = bond.TCF('2020-01-13','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf113_202131 = bond.TCF('2020-01-13','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f113_202131 = function(r) dp113_202131-(cf113_202131[1])*(exp(-yf113_202131[1]*s113_202031))-(cf113_202131[2])*(exp(-yf113_202131[2]*s113_202091))-(cf113_202131[3])*(exp(-yf113_202131[3]*r))
+
+s113_202131 = uniroot(f113_202131,c(0,0.03))$root
+
+
+dp113_202191 = bond.TCF('2020-01-13','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.43
+
+cf113_202191 = bond.TCF('2020-01-13','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf113_202191 = bond.TCF('2020-01-13','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f113_202191 = function(r) dp113_202191-(cf113_202191[1])*(exp(-yf113_202191[1]*s113_202031))-(cf113_202191[2])*(exp(-yf113_202191[2]*s113_202091))-(cf113_202191[3])*(exp(-yf113_202191[3]*s113_202131))-(cf113_202191[4])*(exp(-yf113_202191[4]*r))
+
+s113_202191 = uniroot(f113_202191,c(0,0.03))$root
+
+
+dp113_202231 = bond.TCF('2020-01-13','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.57
+
+cf113_202231 = bond.TCF('2020-01-13','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf113_202231 = bond.TCF('2020-01-13','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f113_202231 = function(r) dp113_202231-(cf113_202231[1])*(exp(-yf113_202231[1]*s113_202031))-(cf113_202231[2])*(exp(-yf113_202231[2]*s113_202091))-(cf113_202231[3])*(exp(-yf113_202231[3]*s113_202131))-(cf113_202231[4])*(exp(-yf113_202231[4]*s113_202191))-(cf113_202231[5])*(exp(-yf113_202231[5]*r))
+
+s113_202231 = uniroot(f113_202231,c(0,0.03))$root
+
+
+dp113_202331 = bond.TCF('2020-01-13','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.27
+
+cf113_202331 = bond.TCF('2020-01-13','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf113_202331 = bond.TCF('2020-01-13','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f113_202331 = function(r) dp113_202331-(cf113_202331[1])*(exp(-yf113_202331[1]*s113_202031))-(cf113_202331[2])*(exp(-yf113_202331[2]*s113_202091))-(cf113_202331[3])*(exp(-yf113_202331[3]*s113_202131))-(cf113_202331[4])*(exp(-yf113_202331[4]*s113_202191))-(cf113_202331[5])*(exp(-yf113_202331[5]*s113_202231))-(cf113_202331[6])*(exp(-yf113_202331[6]*s113_202231))-(cf113_202331[7])*(exp(-yf113_202331[7]*r))
+
+s113_202331 = uniroot(f113_202331,c(0,0.03))$root
+
+
+dp113_202431 = bond.TCF('2020-01-13','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.46
+
+cf113_202431 = bond.TCF('2020-01-13','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf113_202431 = bond.TCF('2020-01-13','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f113_202431 = function(r) dp113_202431-(cf113_202431[1])*(exp(-yf113_202431[1]*s113_202031))-(cf113_202431[2])*(exp(-yf113_202431[2]*s113_202091))-(cf113_202431[3])*(exp(-yf113_202431[3]*s113_202131))-(cf113_202431[4])*(exp(-yf113_202431[4]*s113_202191))-(cf113_202431[5])*(exp(-yf113_202431[5]*s113_202231))-(cf113_202431[6])*(exp(-yf113_202431[6]*s113_202231))-(cf113_202431[7])*(exp(-yf113_202431[7]*s113_202331))-(cf113_202431[8])*(exp(-yf113_202431[8]*s113_202331))-(cf113_202431[9])*(exp(-yf113_202431[9]*r))
+
+s113_202431 = uniroot(f113_202431,c(0,0.03))$root
+
+
+dp113_202491 = bond.TCF('2020-01-13','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 99.06
+
+cf113_202491 = bond.TCF('2020-01-13','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf113_202491 = bond.TCF('2020-01-13','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f113_202491 = function(r) dp113_202491-(cf113_202491[1])*(exp(-yf113_202491[1]*s113_202031))-(cf113_202491[2])*(exp(-yf113_202491[2]*s113_202091))-(cf113_202491[3])*(exp(-yf113_202491[3]*s113_202131))-(cf113_202491[4])*(exp(-yf113_202491[4]*s113_202191))-(cf113_202491[5])*(exp(-yf113_202491[5]*s113_202231))-(cf113_202491[6])*(exp(-yf113_202491[6]*s113_202231))-(cf113_202491[7])*(exp(-yf113_202491[7]*s113_202331))-(cf113_202491[8])*(exp(-yf113_202491[8]*s113_202331))-(cf113_202491[9])*(exp(-yf113_202491[9]*s113_202431))-(cf113_202491[10])*(exp(-yf113_202491[10]*r))
+
+s113_202491 = uniroot(f113_202491,c(0,0.03))$root
+
+
+dp113_202531 = bond.TCF('2020-01-13','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.24
+
+cf113_202531 = bond.TCF('2020-01-13','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf113_202531 = bond.TCF('2020-01-13','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f113_202531 = function(r) dp113_202531-(cf113_202531[1])*(exp(-yf113_202531[1]*s113_202031))-(cf113_202531[2])*(exp(-yf113_202531[2]*s113_202091))-(cf113_202531[3])*(exp(-yf113_202531[3]*s113_202131))-(cf113_202531[4])*(exp(-yf113_202531[4]*s113_202191))-(cf113_202531[5])*(exp(-yf113_202531[5]*s113_202231))-(cf113_202531[6])*(exp(-yf113_202531[6]*s113_202231))-(cf113_202531[7])*(exp(-yf113_202531[7]*s113_202331))-(cf113_202531[8])*(exp(-yf113_202531[8]*s113_202331))-(cf113_202531[9])*(exp(-yf113_202531[9]*s113_202431))-(cf113_202531[10])*(exp(-yf113_202531[10]*s113_202491))-(cf113_202531[11])*(exp(-yf113_202531[11]*r))
+
+s113_202531 = uniroot(f113_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s113_202291 = (s113_202231+s113_202331)/2
+
+s113_202391 = (s113_202331+s113_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds113 = c(s113_202031, s113_202091, s113_202131, s113_202191, s113_202231, s113_202291,s113_202331, s113_202391,s113_202431,s113_202491,s113_202531)
+
+
+#-------------------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/14
+dp114_202031 = bond.TCF('2020-01-14','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf114_202031 = bond.TCF('2020-01-14','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf114_202031 = bond.TCF('2020-01-14','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f114_202031 = function(r) dp114_202031-cf114_202031*(exp(-yf114_202031*r))
+
+s114_202031 = uniroot(f114_202031,c(0,0.03))$root
+
+
+dp114_202091 = bond.TCF('2020-01-14','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.28
+
+cf114_202091 = bond.TCF('2020-01-14','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf114_202091 = bond.TCF('2020-01-14','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f114_202091 = function(r) dp114_202091-(cf114_202091[1])*(exp(-yf114_202091[1]*s114_202031))-(cf114_202091[2])*(exp(-yf114_202091[2]*r))
+
+s114_202091 = uniroot(f114_202091,c(0,0.03))$root
+
+
+dp114_202131 = bond.TCF('2020-01-14','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.9
+
+cf114_202131 = bond.TCF('2020-01-14','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf114_202131 = bond.TCF('2020-01-14','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f114_202131 = function(r) dp114_202131-(cf114_202131[1])*(exp(-yf114_202131[1]*s114_202031))-(cf114_202131[2])*(exp(-yf114_202131[2]*s114_202091))-(cf114_202131[3])*(exp(-yf114_202131[3]*r))
+
+s114_202131 = uniroot(f114_202131,c(0,0.03))$root
+
+
+dp114_202191 = bond.TCF('2020-01-14','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.41
+
+cf114_202191 = bond.TCF('2020-01-14','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf114_202191 = bond.TCF('2020-01-14','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f114_202191 = function(r) dp114_202191-(cf114_202191[1])*(exp(-yf114_202191[1]*s114_202031))-(cf114_202191[2])*(exp(-yf114_202191[2]*s114_202091))-(cf114_202191[3])*(exp(-yf114_202191[3]*s114_202131))-(cf114_202191[4])*(exp(-yf114_202191[4]*r))
+
+s114_202191 = uniroot(f114_202191,c(0,0.03))$root
+
+
+dp114_202231 = bond.TCF('2020-01-14','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.58
+
+cf114_202231 = bond.TCF('2020-01-14','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf114_202231 = bond.TCF('2020-01-14','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f114_202231 = function(r) dp114_202231-(cf114_202231[1])*(exp(-yf114_202231[1]*s114_202031))-(cf114_202231[2])*(exp(-yf114_202231[2]*s114_202091))-(cf114_202231[3])*(exp(-yf114_202231[3]*s114_202131))-(cf114_202231[4])*(exp(-yf114_202231[4]*s114_202191))-(cf114_202231[5])*(exp(-yf114_202231[5]*r))
+
+s114_202231 = uniroot(f114_202231,c(0,0.03))$root
+
+
+dp114_202331 = bond.TCF('2020-01-14','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.31
+
+cf114_202331 = bond.TCF('2020-01-14','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf114_202331 = bond.TCF('2020-01-14','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f114_202331 = function(r) dp114_202331-(cf114_202331[1])*(exp(-yf114_202331[1]*s114_202031))-(cf114_202331[2])*(exp(-yf114_202331[2]*s114_202091))-(cf114_202331[3])*(exp(-yf114_202331[3]*s114_202131))-(cf114_202331[4])*(exp(-yf114_202331[4]*s114_202191))-(cf114_202331[5])*(exp(-yf114_202331[5]*s114_202231))-(cf114_202331[6])*(exp(-yf114_202331[6]*s114_202231))-(cf114_202331[7])*(exp(-yf114_202331[7]*r))
+
+s114_202331 = uniroot(f114_202331,c(0,0.03))$root
+
+
+dp114_202431 = bond.TCF('2020-01-14','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.54
+
+cf114_202431 = bond.TCF('2020-01-14','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf114_202431 = bond.TCF('2020-01-14','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f114_202431 = function(r) dp114_202431-(cf114_202431[1])*(exp(-yf114_202431[1]*s114_202031))-(cf114_202431[2])*(exp(-yf114_202431[2]*s114_202091))-(cf114_202431[3])*(exp(-yf114_202431[3]*s114_202131))-(cf114_202431[4])*(exp(-yf114_202431[4]*s114_202191))-(cf114_202431[5])*(exp(-yf114_202431[5]*s114_202231))-(cf114_202431[6])*(exp(-yf114_202431[6]*s114_202231))-(cf114_202431[7])*(exp(-yf114_202431[7]*s114_202331))-(cf114_202431[8])*(exp(-yf114_202431[8]*s114_202331))-(cf114_202431[9])*(exp(-yf114_202431[9]*r))
+
+s114_202431 = uniroot(f114_202431,c(0,0.03))$root
+
+
+dp114_202491 = bond.TCF('2020-01-14','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 98.99
+
+cf114_202491 = bond.TCF('2020-01-14','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf114_202491 = bond.TCF('2020-01-14','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f114_202491 = function(r) dp114_202491-(cf114_202491[1])*(exp(-yf114_202491[1]*s114_202031))-(cf114_202491[2])*(exp(-yf114_202491[2]*s114_202091))-(cf114_202491[3])*(exp(-yf114_202491[3]*s114_202131))-(cf114_202491[4])*(exp(-yf114_202491[4]*s114_202191))-(cf114_202491[5])*(exp(-yf114_202491[5]*s114_202231))-(cf114_202491[6])*(exp(-yf114_202491[6]*s114_202231))-(cf114_202491[7])*(exp(-yf114_202491[7]*s114_202331))-(cf114_202491[8])*(exp(-yf114_202491[8]*s114_202331))-(cf114_202491[9])*(exp(-yf114_202491[9]*s114_202431))-(cf114_202491[10])*(exp(-yf114_202491[10]*r))
+
+s114_202491 = uniroot(f114_202491,c(0,0.03))$root
+
+
+dp114_202531 = bond.TCF('2020-01-14','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.34
+
+cf114_202531 = bond.TCF('2020-01-14','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf114_202531 = bond.TCF('2020-01-14','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f114_202531 = function(r) dp114_202531-(cf114_202531[1])*(exp(-yf114_202531[1]*s114_202031))-(cf114_202531[2])*(exp(-yf114_202531[2]*s114_202091))-(cf114_202531[3])*(exp(-yf114_202531[3]*s114_202131))-(cf114_202531[4])*(exp(-yf114_202531[4]*s114_202191))-(cf114_202531[5])*(exp(-yf114_202531[5]*s114_202231))-(cf114_202531[6])*(exp(-yf114_202531[6]*s114_202231))-(cf114_202531[7])*(exp(-yf114_202531[7]*s114_202331))-(cf114_202531[8])*(exp(-yf114_202531[8]*s114_202331))-(cf114_202531[9])*(exp(-yf114_202531[9]*s114_202431))-(cf114_202531[10])*(exp(-yf114_202531[10]*s114_202491))-(cf114_202531[11])*(exp(-yf114_202531[11]*r))
+
+s114_202531 = uniroot(f114_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s114_202291 = (s114_202231+s114_202331)/2
+
+s114_202391 = (s114_202331+s114_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds114 = c(s114_202031, s114_202091, s114_202131, s114_202191, s114_202231, s114_202291,s114_202331, s114_202391,s114_202431,s114_202491,s114_202531)
+
+
+#-------------------------------------------------------------------------------
+#Let calculate the spot rate r for each bond at 1/15
+dp115_202031 = bond.TCF('2020-01-15','2020-03-01',0.015,freq=2,redemption_value = 100)$accrued + 99.86
+
+cf115_202031 = bond.TCF('2020-01-15','2020-03-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf115_202031 = bond.TCF('2020-01-15','2020-03-01',0.015,freq=2,redemption_value = 100)$t
+
+f115_202031 = function(r) dp115_202031-cf115_202031*(exp(-yf115_202031*r))
+
+s115_202031 = uniroot(f115_202031,c(0,0.03))$root
+
+
+dp115_202091 = bond.TCF('2020-01-15','2020-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 99.3
+
+cf115_202091 = bond.TCF('2020-01-15','2020-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf115_202091 = bond.TCF('2020-01-15','2020-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f115_202091 = function(r) dp115_202091-(cf115_202091[1])*(exp(-yf115_202091[1]*s115_202031))-(cf115_202091[2])*(exp(-yf115_202091[2]*r))
+
+s115_202091 = uniroot(f115_202091,c(0,0.03))$root
+
+
+dp115_202131 = bond.TCF('2020-01-15','2021-03-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.93
+
+cf115_202131 = bond.TCF('2020-01-15','2021-03-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf115_202131 = bond.TCF('2020-01-15','2021-03-01',0.0075,freq=2,redemption_value = 100)$t
+
+f115_202131 = function(r) dp115_202131-(cf115_202131[1])*(exp(-yf115_202131[1]*s115_202031))-(cf115_202131[2])*(exp(-yf115_202131[2]*s115_202091))-(cf115_202131[3])*(exp(-yf115_202131[3]*r))
+
+s115_202131 = uniroot(f115_202131,c(0,0.03))$root
+
+
+dp115_202191 = bond.TCF('2020-01-15','2021-09-01',0.0075,freq=2,redemption_value = 100)$accrued + 98.42
+
+cf115_202191 = bond.TCF('2020-01-15','2021-09-01',0.0075,freq=2,redemption_value = 100)$cf
+
+yf115_202191 = bond.TCF('2020-01-15','2021-09-01',0.0075,freq=2,redemption_value = 100)$t
+
+f115_202191 = function(r) dp115_202191-(cf115_202191[1])*(exp(-yf115_202191[1]*s115_202031))-(cf115_202191[2])*(exp(-yf115_202191[2]*s115_202091))-(cf115_202191[3])*(exp(-yf115_202191[3]*s115_202131))-(cf115_202191[4])*(exp(-yf115_202191[4]*r))
+
+s115_202191 = uniroot(f115_202191,c(0,0.03))$root
+
+
+dp115_202231 = bond.TCF('2020-01-15','2022-03-01',0.005,freq=2,redemption_value = 100)$accrued + 97.61
+
+cf115_202231 = bond.TCF('2020-01-15','2022-03-01',0.005,freq=2,redemption_value = 100)$cf
+
+yf115_202231 = bond.TCF('2020-01-15','2022-03-01',0.005,freq=2,redemption_value = 100)$t
+
+f115_202231 = function(r) dp115_202231-(cf115_202231[1])*(exp(-yf115_202231[1]*s115_202031))-(cf115_202231[2])*(exp(-yf115_202231[2]*s115_202091))-(cf115_202231[3])*(exp(-yf115_202231[3]*s115_202131))-(cf115_202231[4])*(exp(-yf115_202231[4]*s115_202191))-(cf115_202231[5])*(exp(-yf115_202231[5]*r))
+
+s115_202231 = uniroot(f115_202231,c(0,0.03))$root
+
+
+dp115_202331 = bond.TCF('2020-01-15','2023-03-01',0.0175,freq=2,redemption_value = 100)$accrued + 100.38
+
+cf115_202331 = bond.TCF('2020-01-15','2023-03-01',0.0175,freq=2,redemption_value = 100)$cf
+
+yf115_202331 = bond.TCF('2020-01-15','2023-03-01',0.0175,freq=2,redemption_value = 100)$t
+
+f115_202331 = function(r) dp115_202331-(cf115_202331[1])*(exp(-yf115_202331[1]*s115_202031))-(cf115_202331[2])*(exp(-yf115_202331[2]*s115_202091))-(cf115_202331[3])*(exp(-yf115_202331[3]*s115_202131))-(cf115_202331[4])*(exp(-yf115_202331[4]*s115_202191))-(cf115_202331[5])*(exp(-yf115_202331[5]*s115_202231))-(cf115_202331[6])*(exp(-yf115_202331[6]*s115_202231))-(cf115_202331[7])*(exp(-yf115_202331[7]*r))
+
+s115_202331 = uniroot(f115_202331,c(0,0.03))$root
+
+
+dp115_202431 = bond.TCF('2020-01-15','2024-03-01',0.0225,freq=2,redemption_value = 100)$accrued + 102.64
+
+cf115_202431 = bond.TCF('2020-01-15','2024-03-01',0.0225,freq=2,redemption_value = 100)$cf
+
+yf115_202431 = bond.TCF('2020-01-15','2024-03-01',0.0225,freq=2,redemption_value = 100)$t
+
+f115_202431 = function(r) dp115_202431-(cf115_202431[1])*(exp(-yf115_202431[1]*s115_202031))-(cf115_202431[2])*(exp(-yf115_202431[2]*s115_202091))-(cf115_202431[3])*(exp(-yf115_202431[3]*s115_202131))-(cf115_202431[4])*(exp(-yf115_202431[4]*s115_202191))-(cf115_202431[5])*(exp(-yf115_202431[5]*s115_202231))-(cf115_202431[6])*(exp(-yf115_202431[6]*s115_202231))-(cf115_202431[7])*(exp(-yf115_202431[7]*s115_202331))-(cf115_202431[8])*(exp(-yf115_202431[8]*s115_202331))-(cf115_202431[9])*(exp(-yf115_202431[9]*r))
+
+s115_202431 = uniroot(f115_202431,c(0,0.03))$root
+
+
+dp115_202491 = bond.TCF('2020-01-15','2024-09-01',0.015,freq=2,redemption_value = 100)$accrued + 99.1
+
+cf115_202491 = bond.TCF('2020-01-15','2024-09-01',0.015,freq=2,redemption_value = 100)$cf
+
+yf115_202491 = bond.TCF('2020-01-15','2024-09-01',0.015,freq=2,redemption_value = 100)$t
+
+f115_202491 = function(r) dp115_202491-(cf115_202491[1])*(exp(-yf115_202491[1]*s115_202031))-(cf115_202491[2])*(exp(-yf115_202491[2]*s115_202091))-(cf115_202491[3])*(exp(-yf115_202491[3]*s115_202131))-(cf115_202491[4])*(exp(-yf115_202491[4]*s115_202191))-(cf115_202491[5])*(exp(-yf115_202491[5]*s115_202231))-(cf115_202491[6])*(exp(-yf115_202491[6]*s115_202231))-(cf115_202491[7])*(exp(-yf115_202491[7]*s115_202331))-(cf115_202491[8])*(exp(-yf115_202491[8]*s115_202331))-(cf115_202491[9])*(exp(-yf115_202491[9]*s115_202431))-(cf115_202491[10])*(exp(-yf115_202491[10]*r))
+
+s115_202491 = uniroot(f115_202491,c(0,0.03))$root
+
+
+dp115_202531 = bond.TCF('2020-01-15','2025-03-01',0.0125,freq=2,redemption_value = 100)$accrued + 98.47
+
+cf115_202531 = bond.TCF('2020-01-15','2025-03-01',0.0125,freq=2,redemption_value = 100)$cf
+
+yf115_202531 = bond.TCF('2020-01-15','2025-03-01',0.0125,freq=2,redemption_value = 100)$t
+
+f115_202531 = function(r) dp115_202531-(cf115_202531[1])*(exp(-yf115_202531[1]*s115_202031))-(cf115_202531[2])*(exp(-yf115_202531[2]*s115_202091))-(cf115_202531[3])*(exp(-yf115_202531[3]*s115_202131))-(cf115_202531[4])*(exp(-yf115_202531[4]*s115_202191))-(cf115_202531[5])*(exp(-yf115_202531[5]*s115_202231))-(cf115_202531[6])*(exp(-yf115_202531[6]*s115_202231))-(cf115_202531[7])*(exp(-yf115_202531[7]*s115_202331))-(cf115_202531[8])*(exp(-yf115_202531[8]*s115_202331))-(cf115_202531[9])*(exp(-yf115_202531[9]*s115_202431))-(cf115_202531[10])*(exp(-yf115_202531[10]*s115_202491))-(cf115_202531[11])*(exp(-yf115_202531[11]*r))
+
+s115_202531 = uniroot(f115_202531,c(0,0.03))$root
+
+# spot rate for two missing bonds
+s115_202291 = (s115_202231+s115_202331)/2
+
+s115_202391 = (s115_202331+s115_202431)/2
+
+# Combine all calculated spot rates of bonds
+bonds115 = c(s115_202031, s115_202091, s115_202131, s115_202191, s115_202231, s115_202291,s115_202331, s115_202391,s115_202431,s115_202491,s115_202531)
+
+
+x_12 = c(0.16389,	0.67500,	1.17778,	1.68889,	2.19167,	2.70278,	3.20556,
+        3.71667,	4.22222,	4.73333,	5.23611)
+
+x_13 = c(0.16111,	0.67222,	1.17500,	1.68611,	2.18889,	2.70000,	3.20278,
+        3.71389,	4.21944,	4.73056,	5.23333)
+
+x_16 = c(0.15278,	0.66389,	1.16667,	1.67778,	2.18056,	2.69167,	3.19444,
+        3.70556,	4.21111,	4.72222,	5.22500)
+
+x_17 = c(0.15000,	0.66111,	1.16389,	1.67500,	2.17778,	2.68889,	3.19167, 3.70278,	4.20833,	         4.71944,	5.22222)
+
+x_18 = c(0.14722,	0.65833,	1.16111,	1.67222,	2.17500,	2.68611,	3.18889, 3.70000,	4.20556,	         4.71667,	5.21944)
+
+x_19 = c(0.14444,	0.65556,	1.15833,	1.66944,	2.17222,	2.68333,	3.18611, 3.69722,	4.20278,	         4.71389,	5.21667)
+
+x_110 = c(0.14167,	0.65278,	1.15556,	1.66667,	2.16944,	2.68056,	3.18333, 3.69444,	4.20000,	        4.71111,	5.21389)
+
+x_113 = c(0.13333,	0.64444,	1.14722,	1.65833,	2.16111,	2.67222,	3.17500, 3.68611,	4.19167,	        4.70278,	5.20556)
+
+x_114 = c(0.13056,	0.64167,	1.14444,	1.65556,	2.15833,	2.66944,	3.17222, 3.68333,	4.18889,	        4.70000,	5.20278)
+
+x_115 = c(0.12778,	0.63889,	1.14167,	1.65278,	2.15556,	2.66667,	3.16944, 3.68056,	4.18611,	        4.69722,	5.20000)
+
+# plot the spot curve
+plot(x_12, bonds12, type='o', col='1', ylim=c(0.015,0.026), xlab ='year fraction', ylab = 'spote rate')
+
+lines(x_13, bonds13, type='o', col='2')
+
+lines(x_16, bonds16, type="o", col="3")
+
+lines(x_17, bonds17, type="o", col="4")
+
+lines(x_18, bonds18, type="o", col="5")
+
+lines(x_19, bonds19, type="o", col="6")
+
+lines(x_110, bonds110, type="o", col="7")
+
+lines(x_113, bonds113, type="o", col="8")
+
+lines(x_114, bonds114, type="o", col="9")
+
+lines(x_115, bonds115, type="o", col="10")
+
+legend("top", legend=c("1/2", "1/3", "1/6", "1/7", "1/8", "1/9", "1/10", "1/13", "1/14", "1/15"), col=c("1", "2","3", "4","5", "6","7", "8","9", "10"), lty= 1,cex=0.8)
+
+##______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+#Q4(c)
+
+# Calculate the year fraction from settlement date(1/2) to the maturity date for each bond
+yf12_21 = yearFraction("2020-01-02","2021-01-02")
+
+yf12_22 = yearFraction("2020-01-02","2022-01-02")
+
+yf12_23 = yearFraction("2020-01-02","2023-01-02")
+
+yf12_24 = yearFraction("2020-01-02","2024-01-02")
+
+yf12_25 = yearFraction("2020-01-02","2025-01-02")
+
+
+yf12_202091 = yearFraction("2020-01-02","2020-09-01")
+
+yf12_202131 = yearFraction("2020-01-02","2021-03-01")
+
+yf12_202191 = yearFraction("2020-01-02","2021-09-01")
+
+yf12_202231 = yearFraction("2020-01-02","2022-03-01")
+
+yf12_202291 = yearFraction("2020-01-02","2022-09-01")
+
+yf12_202331 = yearFraction("2020-01-02","2023-03-01")
+
+yf12_202391 = yearFraction("2020-01-02","2023-09-01")
+
+yf12_202431 = yearFraction("2020-01-02","2024-03-01")
+
+yf12_202491 = yearFraction("2020-01-02","2024-09-01")
+
+yf12_202531 = yearFraction("2020-01-02","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s12_21 = s12_202091+((s12_202131-s12_202091)/(yf12_202131-yf12_202091))*(yf12_21-yf12_202091)
+
+s12_22 = s12_202191+((s12_202231-s12_202191)/(yf12_202231-yf12_202191))*(yf12_22-yf12_202191)
+
+s12_23 = s12_202291+((s12_202331-s12_202291)/(yf12_202331-yf12_202291))*(yf12_23-yf12_202291)
+
+s12_24 = s12_202391+((s12_202431-s12_202391)/(yf12_202431-yf12_202391))*(yf12_24-yf12_202391)
+
+s12_25 = s12_202491+((s12_202531-s12_202491)/(yf12_202531-yf12_202491))*(yf12_25-yf12_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/2
+f12_12 = (s12_22*2-s12_21*1)/(2-1)
+
+f12_13 = (s12_23*3-s12_21*1)/(3-1)
+
+f12_14 = (s12_24*4-s12_21*1)/(4-1)
+
+f12_15 = (s12_25*5-s12_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/3) to the maturity date for each bond
+
+yf13_21 = yearFraction("2020-01-03","2021-01-03")
+
+yf13_22 = yearFraction("2020-01-03","2022-01-03")
+
+yf13_23 = yearFraction("2020-01-03","2023-01-03")
+
+yf13_24 = yearFraction("2020-01-03","2024-01-03")
+
+yf13_25 = yearFraction("2020-01-03","2025-01-03")
+
+
+yf13_202091 = yearFraction("2020-01-03","2020-09-01")
+
+yf13_202131 = yearFraction("2020-01-03","2021-03-01")
+
+yf13_202191 = yearFraction("2020-01-03","2021-09-01")
+
+yf13_202231 = yearFraction("2020-01-03","2022-03-01")
+
+yf13_202291 = yearFraction("2020-01-03","2022-09-01")
+
+yf13_202331 = yearFraction("2020-01-03","2023-03-01")
+
+yf13_202391 = yearFraction("2020-01-03","2023-09-01")
+
+yf13_202431 = yearFraction("2020-01-03","2024-03-01")
+
+yf13_202491 = yearFraction("2020-01-03","2024-09-01")
+
+yf13_202531 = yearFraction("2020-01-03","2025-03-01")
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s13_21 = s13_202091+((s13_202131-s13_202091)/(yf13_202131-yf13_202091))*(yf13_21-yf13_202091)
+
+s13_22 = s13_202191+((s13_202231-s13_202191)/(yf13_202231-yf13_202191))*(yf13_22-yf13_202191)
+
+s13_23 = s13_202291+((s13_202331-s13_202291)/(yf13_202331-yf13_202291))*(yf13_23-yf13_202291)
+
+s13_24 = s13_202391+((s13_202431-s13_202391)/(yf13_202431-yf13_202391))*(yf13_24-yf13_202391)
+
+s13_25 = s13_202491+((s13_202531-s13_202491)/(yf13_202531-yf13_202491))*(yf13_25-yf13_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/3
+f13_12 = (s13_22*2-s13_21*1)/(2-1)
+
+f13_13 = (s13_23*3-s13_21*1)/(3-1)
+
+f13_14 = (s13_24*4-s13_21*1)/(4-1)
+
+f13_15 = (s13_25*5-s13_21*1)/(5-1)
+
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/6) to the maturity date for each bond
+
+yf16_21 = yearFraction("2020-01-06","2021-01-06")
+
+yf16_22 = yearFraction("2020-01-06","2022-01-06")
+
+yf16_23 = yearFraction("2020-01-06","2023-01-06")
+
+yf16_24 = yearFraction("2020-01-06","2024-01-06")
+
+yf16_25 = yearFraction("2020-01-06","2025-01-06")
+
+
+yf16_202091 = yearFraction("2020-01-06","2020-09-01")
+
+yf16_202131 = yearFraction("2020-01-06","2021-03-01")
+
+yf16_202191 = yearFraction("2020-01-06","2021-09-01")
+
+yf16_202231 = yearFraction("2020-01-06","2022-03-01")
+
+yf16_202291 = yearFraction("2020-01-06","2022-09-01")
+
+yf16_202331 = yearFraction("2020-01-06","2023-03-01")
+
+yf16_202391 = yearFraction("2020-01-06","2023-09-01")
+
+yf16_202431 = yearFraction("2020-01-06","2024-03-01")
+
+yf16_202491 = yearFraction("2020-01-06","2024-09-01")
+
+yf16_202531 = yearFraction("2020-01-06","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s16_21 = s16_202091+((s16_202131-s16_202091)/(yf16_202131-yf16_202091))*(yf16_21-yf16_202091)
+
+s16_22 = s16_202191+((s16_202231-s16_202191)/(yf16_202231-yf16_202191))*(yf16_22-yf16_202191)
+
+s16_23 = s16_202291+((s16_202331-s16_202291)/(yf16_202331-yf16_202291))*(yf16_23-yf16_202291)
+
+s16_24 = s16_202391+((s16_202431-s16_202391)/(yf16_202431-yf16_202391))*(yf16_24-yf16_202391)
+
+s16_25 = s16_202491+((s16_202531-s16_202491)/(yf16_202531-yf16_202491))*(yf16_25-yf16_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/6
+f16_12 = (s16_22*2-s16_21*1)/(2-1)
+
+f16_13 = (s16_23*3-s16_21*1)/(3-1)
+
+f16_14 = (s16_24*4-s16_21*1)/(4-1)
+
+f16_15 = (s16_25*5-s16_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/7) to the maturity date for each bond
+
+yf17_21 = yearFraction("2020-01-07","2021-01-07")
+
+yf17_22 = yearFraction("2020-01-07","2022-01-07")
+
+yf17_23 = yearFraction("2020-01-07","2023-01-07")
+
+yf17_24 = yearFraction("2020-01-07","2024-01-07")
+
+yf17_25 = yearFraction("2020-01-07","2025-01-07")
+
+
+yf17_202091 = yearFraction("2020-01-07","2020-09-01")
+
+yf17_202131 = yearFraction("2020-01-07","2021-03-01")
+
+yf17_202191 = yearFraction("2020-01-07","2021-09-01")
+
+yf17_202231 = yearFraction("2020-01-07","2022-03-01")
+
+yf17_202291 = yearFraction("2020-01-07","2022-09-01")
+
+yf17_202331 = yearFraction("2020-01-07","2023-03-01")
+
+yf17_202391 = yearFraction("2020-01-07","2023-09-01")
+
+yf17_202431 = yearFraction("2020-01-07","2024-03-01")
+
+yf17_202491 = yearFraction("2020-01-07","2024-09-01")
+
+yf17_202531 = yearFraction("2020-01-07","2025-03-01")
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s17_21 = s17_202091+((s17_202131-s17_202091)/(yf17_202131-yf17_202091))*(yf17_21-yf17_202091)
+
+s17_22 = s17_202191+((s17_202231-s17_202191)/(yf17_202231-yf17_202191))*(yf17_22-yf17_202191)
+
+s17_23 = s17_202291+((s17_202331-s17_202291)/(yf17_202331-yf17_202291))*(yf17_23-yf17_202291)
+
+s17_24 = s17_202391+((s17_202431-s17_202391)/(yf17_202431-yf17_202391))*(yf17_24-yf17_202391)
+
+s17_25 = s17_202491+((s17_202531-s17_202491)/(yf17_202531-yf17_202491))*(yf17_25-yf17_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/7
+f17_12 = (s17_22*2-s17_21*1)/(2-1)
+
+f17_13 = (s17_23*3-s17_21*1)/(3-1)
+
+f17_14 = (s17_24*4-s17_21*1)/(4-1)
+
+f17_15 = (s17_25*5-s17_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/8) to the maturity date for each bond
+
+yf18_21 = yearFraction("2020-01-08","2021-01-08")
+
+yf18_22 = yearFraction("2020-01-08","2022-01-08")
+
+yf18_23 = yearFraction("2020-01-08","2023-01-08")
+
+yf18_24 = yearFraction("2020-01-08","2024-01-08")
+
+yf18_25 = yearFraction("2020-01-08","2025-01-08")
+
+
+yf18_202091 = yearFraction("2020-01-08","2020-09-01")
+
+yf18_202131 = yearFraction("2020-01-08","2021-03-01")
+
+yf18_202191 = yearFraction("2020-01-08","2021-09-01")
+
+yf18_202231 = yearFraction("2020-01-08","2022-03-01")
+
+yf18_202291 = yearFraction("2020-01-08","2022-09-01")
+
+yf18_202331 = yearFraction("2020-01-08","2023-03-01")
+
+yf18_202391 = yearFraction("2020-01-08","2023-09-01")
+
+yf18_202431 = yearFraction("2020-01-08","2024-03-01")
+
+yf18_202491 = yearFraction("2020-01-08","2024-09-01")
+
+yf18_202531 = yearFraction("2020-01-08","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s18_21 = s18_202091+((s18_202131-s18_202091)/(yf18_202131-yf18_202091))*(yf18_21-yf18_202091)
+
+s18_22 = s18_202191+((s18_202231-s18_202191)/(yf18_202231-yf18_202191))*(yf18_22-yf18_202191)
+
+s18_23 = s18_202291+((s18_202331-s18_202291)/(yf18_202331-yf18_202291))*(yf18_23-yf18_202291)
+
+s18_24 = s18_202391+((s18_202431-s18_202391)/(yf18_202431-yf18_202391))*(yf18_24-yf18_202391)
+
+s18_25 = s18_202491+((s18_202531-s18_202491)/(yf18_202531-yf18_202491))*(yf18_25-yf18_202491)
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/8
+f18_12 = (s18_22*2-s18_21*1)/(2-1)
+
+f18_13 = (s18_23*3-s18_21*1)/(3-1)
+
+f18_14 = (s18_24*4-s18_21*1)/(4-1)
+
+f18_15 = (s18_25*5-s18_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/9) to the maturity date for each bond
+
+yf19_21 = yearFraction("2020-01-09","2021-01-09")
+
+yf19_22 = yearFraction("2020-01-09","2022-01-09")
+
+yf19_23 = yearFraction("2020-01-09","2023-01-09")
+
+yf19_24 = yearFraction("2020-01-09","2024-01-09")
+
+yf19_25 = yearFraction("2020-01-09","2025-01-09")
+
+
+yf19_202091 = yearFraction("2020-01-09","2020-09-01")
+
+yf19_202131 = yearFraction("2020-01-09","2021-03-01")
+
+yf19_202191 = yearFraction("2020-01-09","2021-09-01")
+
+yf19_202231 = yearFraction("2020-01-09","2022-03-01")
+
+yf19_202291 = yearFraction("2020-01-09","2022-09-01")
+
+yf19_202331 = yearFraction("2020-01-09","2023-03-01")
+
+yf19_202391 = yearFraction("2020-01-09","2023-09-01")
+
+yf19_202431 = yearFraction("2020-01-09","2024-03-01")
+
+yf19_202491 = yearFraction("2020-01-09","2024-09-01")
+
+yf19_202531 = yearFraction("2020-01-09","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s19_21 = s19_202091+((s19_202131-s19_202091)/(yf19_202131-yf19_202091))*(yf19_21-yf19_202091)
+
+s19_22 = s19_202191+((s19_202231-s19_202191)/(yf19_202231-yf19_202191))*(yf19_22-yf19_202191)
+
+s19_23 = s19_202291+((s19_202331-s19_202291)/(yf19_202331-yf19_202291))*(yf19_23-yf19_202291)
+
+s19_24 = s19_202391+((s19_202431-s19_202391)/(yf19_202431-yf19_202391))*(yf19_24-yf19_202391)
+
+s19_25 = s19_202491+((s19_202531-s19_202491)/(yf19_202531-yf19_202491))*(yf19_25-yf19_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/9
+f19_12 = (s19_22*2-s19_21*1)/(2-1)
+
+f19_13 = (s19_23*3-s19_21*1)/(3-1)
+
+f19_14 = (s19_24*4-s19_21*1)/(4-1)
+
+f19_15 = (s19_25*5-s19_21*1)/(5-1)
+
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/10) to the maturity date for each bond
+
+yf110_21 = yearFraction("2020-01-10","2021-01-10")
+
+yf110_22 = yearFraction("2020-01-10","2022-01-10")
+
+yf110_23 = yearFraction("2020-01-10","2023-01-10")
+
+yf110_24 = yearFraction("2020-01-10","2024-01-10")
+
+yf110_25 = yearFraction("2020-01-10","2025-01-10")
+
+
+yf110_202091 = yearFraction("2020-01-10","2020-09-01")
+
+yf110_202131 = yearFraction("2020-01-10","2021-03-01")
+
+yf110_202191 = yearFraction("2020-01-10","2021-09-01")
+
+yf110_202231 = yearFraction("2020-01-10","2022-03-01")
+
+yf110_202291 = yearFraction("2020-01-10","2022-09-01")
+
+yf110_202331 = yearFraction("2020-01-10","2023-03-01")
+
+yf110_202391 = yearFraction("2020-01-10","2023-09-01")
+
+yf110_202431 = yearFraction("2020-01-10","2024-03-01")
+
+yf110_202491 = yearFraction("2020-01-10","2024-09-01")
+
+yf110_202531 = yearFraction("2020-01-10","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s110_21 = s110_202091+((s110_202131-s110_202091)/(yf110_202131-yf110_202091))*(yf110_21-yf110_202091)
+
+s110_22 = s110_202191+((s110_202231-s110_202191)/(yf110_202231-yf110_202191))*(yf110_22-yf110_202191)
+
+s110_23 = s110_202291+((s110_202331-s110_202291)/(yf110_202331-yf110_202291))*(yf110_23-yf110_202291)
+
+s110_24 = s110_202391+((s110_202431-s110_202391)/(yf110_202431-yf110_202391))*(yf110_24-yf110_202391)
+
+s110_25 = s110_202491+((s110_202531-s110_202491)/(yf110_202531-yf110_202491))*(yf110_25-yf110_202491)
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/10
+f110_12 = (s110_22*2-s110_21*1)/(2-1)
+
+f110_13 = (s110_23*3-s110_21*1)/(3-1)
+
+f110_14 = (s110_24*4-s110_21*1)/(4-1)
+
+f110_15 = (s110_25*5-s110_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/13) to the maturity date for each bond
+
+yf113_21 = yearFraction("2020-01-13","2021-01-13")
+
+yf113_22 = yearFraction("2020-01-13","2022-01-13")
+
+yf113_23 = yearFraction("2020-01-13","2023-01-13")
+
+yf113_24 = yearFraction("2020-01-13","2024-01-13")
+
+yf113_25 = yearFraction("2020-01-13","2025-01-13")
+
+
+yf113_202091 = yearFraction("2020-01-13","2020-09-01")
+
+yf113_202131 = yearFraction("2020-01-13","2021-03-01")
+
+yf113_202191 = yearFraction("2020-01-13","2021-09-01")
+
+yf113_202231 = yearFraction("2020-01-13","2022-03-01")
+
+yf113_202291 = yearFraction("2020-01-13","2022-09-01")
+
+yf113_202331 = yearFraction("2020-01-13","2023-03-01")
+
+yf113_202391 = yearFraction("2020-01-13","2023-09-01")
+
+yf113_202431 = yearFraction("2020-01-13","2024-03-01")
+
+yf113_202491 = yearFraction("2020-01-13","2024-09-01")
+
+yf113_202531 = yearFraction("2020-01-13","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s113_21 = s113_202091+((s113_202131-s113_202091)/(yf113_202131-yf113_202091))*(yf113_21-yf113_202091)
+
+s113_22 = s113_202191+((s113_202231-s113_202191)/(yf113_202231-yf113_202191))*(yf113_22-yf113_202191)
+
+s113_23 = s113_202291+((s113_202331-s113_202291)/(yf113_202331-yf113_202291))*(yf113_23-yf113_202291)
+
+s113_24 = s113_202391+((s113_202431-s113_202391)/(yf113_202431-yf113_202391))*(yf113_24-yf113_202391)
+
+s113_25 = s113_202491+((s113_202531-s113_202491)/(yf113_202531-yf113_202491))*(yf113_25-yf113_202491)
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/13
+f113_12 = (s113_22*2-s113_21*1)/(2-1)
+
+f113_13 = (s113_23*3-s113_21*1)/(3-1)
+
+f113_14 = (s113_24*4-s113_21*1)/(4-1)
+
+f113_15 = (s113_25*5-s113_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/14) to the maturity date for each bond
+
+yf114_21 = yearFraction("2020-01-14","2021-01-14")
+
+yf114_22 = yearFraction("2020-01-14","2022-01-14")
+
+yf114_23 = yearFraction("2020-01-14","2023-01-14")
+
+yf114_24 = yearFraction("2020-01-14","2024-01-14")
+
+yf114_25 = yearFraction("2020-01-14","2025-01-14")
+
+
+yf114_202091 = yearFraction("2020-01-14","2020-09-01")
+
+yf114_202131 = yearFraction("2020-01-14","2021-03-01")
+
+yf114_202191 = yearFraction("2020-01-14","2021-09-01")
+
+yf114_202231 = yearFraction("2020-01-14","2022-03-01")
+
+yf114_202291 = yearFraction("2020-01-14","2022-09-01")
+
+yf114_202331 = yearFraction("2020-01-14","2023-03-01")
+
+yf114_202391 = yearFraction("2020-01-14","2023-09-01")
+
+yf114_202431 = yearFraction("2020-01-14","2024-03-01")
+
+yf114_202491 = yearFraction("2020-01-14","2024-09-01")
+
+yf114_202531 = yearFraction("2020-01-14","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s114_21 = s114_202091+((s114_202131-s114_202091)/(yf114_202131-yf114_202091))*(yf114_21-yf114_202091)
+
+s114_22 = s114_202191+((s114_202231-s114_202191)/(yf114_202231-yf114_202191))*(yf114_22-yf114_202191)
+
+s114_23 = s114_202291+((s114_202331-s114_202291)/(yf114_202331-yf114_202291))*(yf114_23-yf114_202291)
+
+s114_24 = s114_202391+((s114_202431-s114_202391)/(yf114_202431-yf114_202391))*(yf114_24-yf114_202391)
+
+s114_25 = s114_202491+((s114_202531-s114_202491)/(yf114_202531-yf114_202491))*(yf114_25-yf114_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/14
+f114_12 = (s114_22*2-s114_21*1)/(2-1)
+
+f114_13 = (s114_23*3-s114_21*1)/(3-1)
+
+f114_14 = (s114_24*4-s114_21*1)/(4-1)
+
+f114_15 = (s114_25*5-s114_21*1)/(5-1)
+
+
+#---------------------------------------------------------------------
+
+# Calculate the year fraction from settlement date(1/15) to the maturity date for each bond
+
+yf115_21 = yearFraction("2020-01-15","2021-01-15")
+
+yf115_22 = yearFraction("2020-01-15","2022-01-15")
+
+yf115_23 = yearFraction("2020-01-15","2023-01-15")
+
+yf115_24 = yearFraction("2020-01-15","2024-01-15")
+
+yf115_25 = yearFraction("2020-01-15","2025-01-15")
+
+
+yf115_202091 = yearFraction("2020-01-15","2020-09-01")
+
+yf115_202131 = yearFraction("2020-01-15","2021-03-01")
+
+yf115_202191 = yearFraction("2020-01-15","2021-09-01")
+
+yf115_202231 = yearFraction("2020-01-15","2022-03-01")
+
+yf115_202291 = yearFraction("2020-01-15","2022-09-01")
+
+yf115_202331 = yearFraction("2020-01-15","2023-03-01")
+
+yf115_202391 = yearFraction("2020-01-15","2023-09-01")
+
+yf115_202431 = yearFraction("2020-01-15","2024-03-01")
+
+yf115_202491 = yearFraction("2020-01-15","2024-09-01")
+
+yf115_202531 = yearFraction("2020-01-15","2025-03-01")
+
+
+# Estimation of 1yr, 2yr,3yr,4yr,5yr spot rates 
+s115_21 = s115_202091+((s115_202131-s115_202091)/(yf115_202131-yf115_202091))*(yf115_21-yf115_202091)
+
+s115_22 = s115_202191+((s115_202231-s115_202191)/(yf115_202231-yf115_202191))*(yf115_22-yf115_202191)
+
+s115_23 = s115_202291+((s115_202331-s115_202291)/(yf115_202331-yf115_202291))*(yf115_23-yf115_202291)
+
+s115_24 = s115_202391+((s115_202431-s115_202391)/(yf115_202431-yf115_202391))*(yf115_24-yf115_202391)
+
+s115_25 = s115_202491+((s115_202531-s115_202491)/(yf115_202531-yf115_202491))*(yf115_25-yf115_202491)
+
+
+# Let calculate the 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at the date 1/15
+f115_12 = (s115_22*2-s115_21*1)/(2-1)
+
+f115_13 = (s115_23*3-s115_21*1)/(3-1)
+
+f115_14 = (s115_24*4-s115_21*1)/(4-1)
+
+f115_15 = (s115_25*5-s115_21*1)/(5-1)
+
+
+# Combine all the forward rates for each date from 1/2 to 1/15
+f_12 = c(f12_12,f12_13,f12_14,f12_15)
+
+f_13 = c(f13_12,f13_13,f13_14,f13_15)
+
+f_16 = c(f16_12,f16_13,f16_14,f16_15)
+
+f_17 = c(f17_12,f17_13,f17_14,f17_15)
+
+f_18 = c(f18_12,f18_13,f18_14,f18_15)
+
+f_19 = c(f19_12,f19_13,f19_14,f19_15)
+
+f_110 = c(f110_12,f110_13,f110_14,f110_15)
+
+f_113 = c(f113_12,f113_13,f113_14,f113_15)
+
+f_114 = c(f114_12,f114_13,f114_14,f114_15)
+
+f_115 = c(f115_12,f115_13,f115_14,f115_15)
+
+# plot the forward curve
+x = c(1 ,2,3,4)
+
+plot(x, f_12, type="o", col="1", ylim=c(0.015,0.0168), xlab ="year fraction", ylab = "forward rate")
+
+lines(x, f_13, type="o", col="2")
+
+lines(x, f_16, type="o", col="3")
+
+lines(x, f_17, type="o", col="4")
+
+lines(x, f_18, type="o", col="5")
+
+lines(x, f_19, type="o", col="6")
+
+lines(x, f_110, type="o", col="7")
+
+lines(x, f_113, type="o", col="8")
+
+lines(x, f_114, type="o", col="9")
+
+lines(x, f_115, type="o", col="10")
+
+legend("top", legend=c("1/2", "1/3", "1/6", "1/7", "1/8", "1/9", "1/10", "1/13", "1/14", "1/15"), col=c("1", "2","3", "4","5", "6","7", "8","9", "10"), lty= 1,cex=0.6)
+
+
+
+##______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+#Q5
+# Estimate ytm every year(from 2021 to 2025) at the date 1/2 to 1/15
+#1/2
+y1221 = ytm_12_20200901+((ytm_12_20210301-ytm_12_20200901)/(yf12_202131-yf12_202091))*(yf12_21-yf12_202091)
+
+y1222 = ytm_12_20210901+((ytm_12_20220301-ytm_12_20210901)/(yf12_202231-yf12_202191))*(yf12_22-yf12_202191)
+
+y1223 = ytm_12_20220901+((ytm_12_20230301-ytm_12_20220901)/(yf12_202331-yf12_202291))*(yf12_23-yf12_202291)
+
+y1224 = ytm_12_20230901+((ytm_12_20240301-ytm_12_20230901)/(yf12_202431-yf12_202391))*(yf12_24-yf12_202391)
+
+y1225 = ytm_12_20240901+((ytm_12_20250301-ytm_12_20240901)/(yf12_202531-yf12_202491))*(yf12_25-yf12_202491)
+
+#1/3
+y1321 = ytm_13_20200901+((ytm_13_20210301-ytm_13_20200901)/(yf13_202131-yf13_202091))*(yf13_21-yf13_202091)
+
+y1322 = ytm_13_20210901+((ytm_13_20220301-ytm_13_20210901)/(yf13_202231-yf13_202191))*(yf13_22-yf13_202191)
+
+y1323 = ytm_13_20220901+((ytm_13_20230301-ytm_13_20220901)/(yf13_202331-yf13_202291))*(yf13_23-yf13_202291)
+
+y1324 = ytm_13_20230901+((ytm_13_20240301-ytm_13_20230901)/(yf13_202431-yf13_202391))*(yf13_24-yf13_202391)
+
+y1325 = ytm_13_20240901+((ytm_13_20250301-ytm_13_20240901)/(yf13_202531-yf13_202491))*(yf13_25-yf13_202491)
+
+#1/6
+y1621 = ytm_16_20200901+((ytm_16_20210301-ytm_16_20200901)/(yf16_202131-yf16_202091))*(yf16_21-yf16_202091)
+
+y1622 = ytm_16_20210901+((ytm_16_20220301-ytm_16_20210901)/(yf16_202231-yf16_202191))*(yf16_22-yf16_202191)
+
+y1623 = ytm_16_20220901+((ytm_16_20230301-ytm_16_20220901)/(yf16_202331-yf16_202291))*(yf16_23-yf16_202291)
+
+y1624 = ytm_16_20230901+((ytm_16_20240301-ytm_16_20230901)/(yf16_202431-yf16_202391))*(yf16_24-yf16_202391)
+
+y1625 = ytm_16_20240901+((ytm_16_20250301-ytm_16_20240901)/(yf16_202531-yf16_202491))*(yf16_25-yf16_202491)
+
+#1/7
+y1721 = ytm_17_20200901+((ytm_17_20210301-ytm_17_20200901)/(yf17_202131-yf17_202091))*(yf17_21-yf17_202091)
+
+y1722 = ytm_17_20210901+((ytm_17_20220301-ytm_17_20210901)/(yf17_202231-yf17_202191))*(yf17_22-yf17_202191)
+
+y1723 = ytm_17_20220901+((ytm_17_20230301-ytm_17_20220901)/(yf17_202331-yf17_202291))*(yf17_23-yf17_202291)
+
+y1724 = ytm_17_20230901+((ytm_17_20240301-ytm_17_20230901)/(yf17_202431-yf17_202391))*(yf17_24-yf17_202391)
+
+y1725 = ytm_17_20240901+((ytm_17_20250301-ytm_17_20240901)/(yf17_202531-yf17_202491))*(yf17_25-yf17_202491)
+
+#1/8
+y1821 = ytm_18_20200901+((ytm_18_20210301-ytm_18_20200901)/(yf18_202131-yf18_202091))*(yf18_21-yf18_202091)
+
+y1822 = ytm_18_20210901+((ytm_18_20220301-ytm_18_20210901)/(yf18_202231-yf18_202191))*(yf18_22-yf18_202191)
+
+y1823 = ytm_18_20220901+((ytm_18_20230301-ytm_18_20220901)/(yf18_202331-yf18_202291))*(yf18_23-yf18_202291)
+
+y1824 = ytm_18_20230901+((ytm_18_20240301-ytm_18_20230901)/(yf18_202431-yf18_202391))*(yf18_24-yf18_202391)
+
+y1825 = ytm_18_20240901+((ytm_18_20250301-ytm_18_20240901)/(yf18_202531-yf18_202491))*(yf18_25-yf18_202491)
+
+#1/9
+y1921 = ytm_19_20200901+((ytm_19_20210301-ytm_19_20200901)/(yf19_202131-yf19_202091))*(yf19_21-yf19_202091)
+
+y1922 = ytm_19_20210901+((ytm_19_20220301-ytm_19_20210901)/(yf19_202231-yf19_202191))*(yf19_22-yf19_202191)
+
+y1923 = ytm_19_20220901+((ytm_19_20230301-ytm_19_20220901)/(yf19_202331-yf19_202291))*(yf19_23-yf19_202291)
+
+y1924 = ytm_19_20230901+((ytm_19_20240301-ytm_19_20230901)/(yf19_202431-yf19_202391))*(yf19_24-yf19_202391)
+
+y1925 = ytm_19_20240901+((ytm_19_20250301-ytm_19_20240901)/(yf19_202531-yf19_202491))*(yf19_25-yf19_202491)
+
+#1/10
+y11021 = ytm_110_20200901+((ytm_110_20210301-ytm_110_20200901)/(yf110_202131-yf110_202091))*(yf110_21-yf110_202091)
+
+y11022 = ytm_110_20210901+((ytm_110_20220301-ytm_110_20210901)/(yf110_202231-yf110_202191))*(yf110_22-yf110_202191)
+
+y11023 = ytm_110_20220901+((ytm_110_20230301-ytm_110_20220901)/(yf110_202331-yf110_202291))*(yf110_23-yf110_202291)
+
+y11024 = ytm_110_20230901+((ytm_110_20240301-ytm_110_20230901)/(yf110_202431-yf110_202391))*(yf110_24-yf110_202391)
+
+y11025 = ytm_110_20240901+((ytm_110_20250301-ytm_110_20240901)/(yf110_202531-yf110_202491))*(yf110_25-yf110_202491)
+
+#1/13
+y11321 = ytm_113_20200901+((ytm_113_20210301-ytm_113_20200901)/(yf113_202131-yf113_202091))*(yf113_21-yf113_202091)
+
+y11322 = ytm_113_20210901+((ytm_113_20220301-ytm_113_20210901)/(yf113_202231-yf113_202191))*(yf113_22-yf113_202191)
+
+y11323 = ytm_113_20220901+((ytm_113_20230301-ytm_113_20220901)/(yf113_202331-yf113_202291))*(yf113_23-yf113_202291)
+
+y11324 = ytm_113_20230901+((ytm_113_20240301-ytm_113_20230901)/(yf113_202431-yf113_202391))*(yf113_24-yf113_202391)
+
+y11325 = ytm_113_20240901+((ytm_113_20250301-ytm_113_20240901)/(yf113_202531-yf113_202491))*(yf113_25-yf113_202491)
+
+#1/14
+y11421 = ytm_114_20200901+((ytm_114_20210301-ytm_114_20200901)/(yf114_202131-yf114_202091))*(yf114_21-yf114_202091)
+
+y11422 = ytm_114_20210901+((ytm_114_20220301-ytm_114_20210901)/(yf114_202231-yf114_202191))*(yf114_22-yf114_202191)
+
+y11423 = ytm_114_20220901+((ytm_114_20230301-ytm_114_20220901)/(yf114_202331-yf114_202291))*(yf114_23-yf114_202291)
+
+y11424 = ytm_114_20230901+((ytm_114_20240301-ytm_114_20230901)/(yf114_202431-yf114_202391))*(yf114_24-yf114_202391)
+
+y11425 = ytm_114_20240901+((ytm_114_20250301-ytm_114_20240901)/(yf114_202531-yf114_202491))*(yf114_25-yf114_202491)
+
+
+#1/15
+y11521 = ytm_115_20200901+((ytm_115_20210301-ytm_115_20200901)/(yf115_202131-yf115_202091))*(yf115_21-yf115_202091)
+
+y11522 = ytm_115_20210901+((ytm_115_20220301-ytm_115_20210901)/(yf115_202231-yf115_202191))*(yf115_22-yf115_202191)
+
+y11523 = ytm_115_20220901+((ytm_115_20230301-ytm_115_20220901)/(yf115_202331-yf115_202291))*(yf115_23-yf115_202291)
+
+y11524 = ytm_115_20230901+((ytm_115_20240301-ytm_115_20230901)/(yf115_202431-yf115_202391))*(yf115_24-yf115_202391)
+
+y11525 = ytm_115_20240901+((ytm_115_20250301-ytm_115_20240901)/(yf115_202531-yf115_202491))*(yf115_25-yf115_202491)
+
+# log returns of ytm for 2021,2022,...2025 at each date(1/2 to 1/15)
+#2021
+x12_21 = log(y1321/y1221)
+
+x13_21 = log(y1621/y1321)
+
+x16_21 = log(y1721/y1621)
+
+x17_21 = log(y1821/y1721)
+
+x18_21 = log(y1921/y1821)
+
+x19_21 = log(y11021/y1921)
+
+x110_21 = log(y11321/y11021)
+
+x113_21 = log(y11421/y11321)
+
+x114_21 = log(y11521/y11421)
+
+#2022
+x12_22 = log(y1322/y1222)
+
+x13_22 = log(y1622/y1322)
+
+x16_22 = log(y1722/y1622)
+
+x17_22 = log(y1822/y1722)
+
+x18_22 = log(y1922/y1822)
+
+x19_22 = log(y11022/y1922)
+
+x110_22 = log(y11322/y11022)
+
+x113_22 = log(y11422/y11322)
+
+x114_22 = log(y11522/y11422)
+
+#2023
+x12_23 = log(y1323/y1223)
+
+x13_23 = log(y1623/y1323)
+
+x16_23 = log(y1723/y1623)
+
+x17_23 = log(y1823/y1723)
+
+x18_23 = log(y1923/y1823)
+
+x19_23 = log(y11023/y1923)
+
+x110_23 = log(y11323/y11023)
+
+x113_23 = log(y11423/y11323)
+
+x114_23 = log(y11523/y11423)
+
+#2024
+x12_24 = log(y1324/y1224)
+
+x13_24 = log(y1624/y1324)
+
+x16_24 = log(y1724/y1624)
+
+x17_24 = log(y1824/y1724)
+
+x18_24 = log(y1924/y1824)
+
+x19_24 = log(y11024/y1924)
+
+x110_24 = log(y11324/y11024)
+
+x113_24 = log(y11424/y11324)
+
+x114_24 = log(y11524/y11424)
+
+#2025
+x12_25 = log(y1325/y1225)
+
+x13_25 = log(y1625/y1325)
+
+x16_25 = log(y1725/y1625)
+
+x17_25 = log(y1825/y1725)
+
+x18_25 = log(y1925/y1825)
+
+x19_25 = log(y11025/y1925)
+
+x110_25 = log(y11325/y11025)
+
+x113_25 = log(y11425/y11325)
+
+x114_25 = log(y11525/y11425)
+
+# Combine all the log returns of ytm
+c21 = c(x12_21,x13_21,x16_21,x17_21,x18_21,x19_21,x110_21,x113_21,x114_21)
+
+c22 = c(x12_22,x13_22,x16_22,x17_22,x18_22,x19_22,x110_22,x113_22,x114_22)
+
+c23 = c(x12_23,x13_23,x16_23,x17_23,x18_23,x19_23,x110_23,x113_23,x114_23)
+
+c24 = c(x12_24,x13_24,x16_24,x17_24,x18_24,x19_24,x110_24,x113_24,x114_24)
+
+c25 = c(x12_25,x13_25,x16_25,x17_25,x18_25,x19_25,x110_25,x113_25,x114_25)
+
+
+# Combination of mean of all the log returns of ytm
+c21_bar = c(mean(c21),mean(c21),mean(c21),mean(c21),mean(c21),mean(c21),mean(c21),mean(c21),mean(c21))
+
+c22_bar = c(mean(c22),mean(c22),mean(c22),mean(c22),mean(c22),mean(c22),mean(c22),mean(c22),mean(c22))
+
+c23_bar = c(mean(c23),mean(c23),mean(c23),mean(c23),mean(c23),mean(c23),mean(c23),mean(c23),mean(c23))
+
+c24_bar = c(mean(c24),mean(c24),mean(c24),mean(c24),mean(c24),mean(c24),mean(c24),mean(c24),mean(c24))
+
+c25_bar = c(mean(c25),mean(c25),mean(c25),mean(c25),mean(c25),mean(c25),mean(c25),mean(c25),mean(c25))
+
+# Matrix X
+X = cbind(c21,c22,c23,c24,c25)
+
+# Matrix X_bar
+X_bar = cbind(c21_bar,c22_bar,c23_bar,c24_bar,c25_bar)
+
+# Covariance of yield curve
+
+y_cov_matrix = (t(X-X_bar))%*%(X-X_bar)/8 
+
+y_cov_matrix
+
+
+#-----------------------------------------------------------------------
+
+# log returns of 1yr-1yr,1yr-2yr,1yr-3yr,1yr-4yr forward rates at each date(1/2 to 1/15)
+# 1yr-1yr
+x12_12 = log(f13_12/f12_12)
+
+x13_12 = log(f16_12/f13_12)
+
+x16_12 = log(f17_12/f16_12)
+
+x17_12 = log(f18_12/f17_12)
+
+x18_12 = log(f19_12/f18_12)
+
+x19_12 = log(f110_12/f19_12)
+
+x110_12 = log(f113_12/f110_12)
+
+x113_12 = log(f114_12/f113_12)
+
+x114_12 = log(f115_12/f114_12)
+
+#1yr-2yr
+x12_13 = log(f13_13/f12_13)
+
+x13_13 = log(f16_13/f13_13)
+
+x16_13 = log(f17_13/f16_13)
+
+x17_13 = log(f18_13/f17_13)
+
+x18_13 = log(f19_13/f18_13)
+
+x19_13 = log(f110_13/f19_13)
+
+x110_13 = log(f113_13/f110_13)
+
+x113_13 = log(f114_13/f113_13)
+
+x114_13 = log(f115_13/f114_13)
+
+#1yr-3yr
+x12_14 = log(f13_14/f12_14)
+
+x13_14 = log(f16_14/f13_14)
+
+x16_14 = log(f17_14/f16_14)
+
+x17_14 = log(f18_14/f17_14)
+
+x18_14 = log(f19_14/f18_14)
+
+x19_14 = log(f110_14/f19_14)
+
+x110_14 = log(f113_14/f110_14)
+
+x113_14 = log(f114_14/f113_14)
+
+x114_14 = log(f115_14/f114_14)
+
+#1yr-4yr
+x12_15 = log(f13_15/f12_15)
+
+x13_15 = log(f16_15/f13_15)
+
+x16_15 = log(f17_15/f16_15)
+
+x17_15 = log(f18_15/f17_15)
+
+x18_15 = log(f19_15/f18_15)
+
+x19_15 = log(f110_15/f19_15)
+
+x110_15 = log(f113_15/f110_15)
+
+x113_15 = log(f114_15/f113_15)
+
+x114_15 = log(f115_15/f114_15)
+
+# Combine all the log returns of forward rates
+c12 = c(x12_12,x13_12,x16_12,x17_12,x18_12,x19_12,x110_12,x113_12,x114_12)
+
+c13 = c(x12_13,x13_13,x16_13,x17_13,x18_13,x19_13,x110_13,x113_13,x114_13)
+
+c14 = c(x12_14,x13_14,x16_14,x17_14,x18_14,x19_14,x110_14,x113_14,x114_14)
+
+c15 = c(x12_15,x13_15,x16_15,x17_15,x18_15,x19_15,x110_15,x113_15,x114_15)
+
+# Combination of mean of all the log returns of forward rates
+c12_bar = c(mean(c12),mean(c12),mean(c12),mean(c12),mean(c12),mean(c12),mean(c12),mean(c12),mean(c12))
+
+c13_bar = c(mean(c13),mean(c13),mean(c13),mean(c13),mean(c13),mean(c13),mean(c13),mean(c13),mean(c13))
+
+c14_bar = c(mean(c14),mean(c14),mean(c14),mean(c14),mean(c14),mean(c14),mean(c14),mean(c14),mean(c14))
+
+c15_bar = c(mean(c15),mean(c15),mean(c15),mean(c15),mean(c15),mean(c15),mean(c15),mean(c15),mean(c15))
+
+# Matrx Y
+Y = cbind(c12,c13,c14,c15)
+
+# Matrix Y_bar
+Y_bar = cbind(c12_bar,c13_bar,c14_bar,c15_bar)
+
+# Covariance of forward curve 
+
+f_cov_matrix = ((t(Y-Y_bar))%*%(Y-Y_bar))/8 
+
+f_cov_matrix 
+
+#_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________#Q6
+# Corresponding eigenvalues and eigenvectors for yield curve covariance matrix
+evy = eigen(y_cov_matrix)
+
+evy
+
+# Corresponding eigenvalues and eigenvectors for forward curve covariance matrix
+evf = eigen(f_cov_matrix)
+
+evf
+
+
+```
+
+
+
+
